@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: buildWidget(
-        WidgetType.body(),
+        WidgetType.page(
+          header: WidgetType.header(title: 'A Test'),
+          body: WidgetType.body(),
+        ),
         null,
       ),
     );
