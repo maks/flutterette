@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: buildWidget(
-        WidgetType.page(
-          header: WidgetType.header(title: 'A Test'),
-          body: WidgetType.body(),
+        Page(
+          header: Header(title: 'A Test'),
+          body: Body(),
         ),
         null,
       ),

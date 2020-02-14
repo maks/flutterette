@@ -1,10 +1,40 @@
-import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'widget_type.freezed.dart';
+part 'widget_type.g.dart';
 
-@immutable
-abstract class WidgetType with _$WidgetType {
-  const factory WidgetType.page({Body body, Header header}) = Page;
-  const factory WidgetType.body() = Body;
-  const factory WidgetType.header({String title}) = Header;
+abstract class WidgetType {}
+
+@JsonSerializable()
+class Page implements WidgetType {
+  final Body body;
+  final Header header;
+
+  const Page({
+    this.body,
+    this.header,
+  });
+
+  factory Page.fromJson(Map<String, dynamic> json) => _$PageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PageToJson(this);
+}
+
+@JsonSerializable()
+class Body implements WidgetType {
+  const Body();
+
+  factory Body.fromJson(Map<String, dynamic> json) => _$BodyFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BodyToJson(this);
+}
+
+@JsonSerializable()
+class Header implements WidgetType {
+  final String title;
+
+  const Header({this.title});
+
+  factory Header.fromJson(Map<String, dynamic> json) => _$HeaderFromJson(json);
+
+  Map<String, dynamic> toJson() => _$HeaderToJson(this);
 }
