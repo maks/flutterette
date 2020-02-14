@@ -1,12 +1,12 @@
 {
     "flutterette" : {
         "head" : {
-            "title" : "Flutterette App"
+            "title" : "A Flutterette App"
         },
         "pages" : [
             {
                 "header": {
-
+                    "title": "Test App"
                 },
                 "body": {
                     
