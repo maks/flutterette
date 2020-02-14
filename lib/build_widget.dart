@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterette/widget_data.dart';
-import 'package:flutterette/widget_type.dart';
+import 'package:flutterette/models/widget_data.dart';
+import 'package:flutterette/models/widget_type.dart';
 
 Widget buildWidget(WidgetType widgetType, WidgetData data) {
   switch (widgetType.runtimeType) {

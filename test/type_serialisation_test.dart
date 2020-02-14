@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutterette/widget_type.dart';
+import 'package:flutterette/models/widget_type.dart';
 import 'package:test/test.dart';
 
 void main() {

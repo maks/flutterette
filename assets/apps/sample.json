@@ -1,0 +1,18 @@
+{
+    "flutterette" : {
+        "head" : {
+            "title" : "Flutterette App"
+        },
+        "pages" : [
+            {
+                "header": {
+
+                },
+                "body": {
+                    
+                }
+            }
+        ]
+
+    }
+}

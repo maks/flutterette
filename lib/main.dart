@@ -1,24 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutterette/build_widget.dart';
-import 'package:flutterette/widget_type.dart';
+import 'package:flutterette/app_player.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+import 'bloc/app_bloc.dart';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutterette',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: buildWidget(
-        Page(
-          header: Header(title: 'A Test'),
-          body: Body(),
-        ),
-        null,
+void main() => runApp(
+      Provider<AppBloc>(
+        child: AppPlayer(),
+        create: (BuildContext context) => AppBloc(),
       ),
     );
-  }
-}
