@@ -8,7 +8,7 @@ part of 'section.dart';
 
 Section _$SectionFromJson(Map<String, dynamic> json) {
   return Section(
-    components: (json['components'] as List)
+    items: (json['items'] as List)
         ?.map((e) =>
             e == null ? null : Component.fromJson(e as Map<String, dynamic>))
         ?.toList(),
@@ -16,5 +16,5 @@ Section _$SectionFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
-      'components': instance.components,
+      'items': instance.items,
     };

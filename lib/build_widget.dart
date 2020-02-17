@@ -31,7 +31,7 @@ List<Widget> _buildSectionWidgets(
     List<Section> sections, List<WidgetData> data) {
   return sections
       .map((s) => Column(
-            children: _buildSectionTypeWidgets(s.components, data),
+            children: _buildSectionTypeWidgets(s.items, data),
           ))
       .toList();
 }

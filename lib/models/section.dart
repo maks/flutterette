@@ -6,9 +6,9 @@ part 'section.g.dart';
 
 @JsonSerializable()
 class Section implements WidgetType {
-  final List<Component> components;
+  final List<Component> items;
 
-  const Section({this.components});
+  const Section({this.items});
 
   factory Section.fromJson(Map<String, dynamic> json) =>
       _$SectionFromJson(json);
