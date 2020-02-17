@@ -1,3 +1,4 @@
+import 'package:flutterette/models/layouts.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'components.g.dart';
@@ -17,6 +18,10 @@ class Component {
           return LabelComponent.fromJson(json);
         case 'image':
           return ImageComponent.fromJson(json);
+        case 'horizontal':
+          return HorizontalLayoutComponent.fromJson(json);
+        case 'vertical':
+          return VerticalLayoutComponent.fromJson(json);
         default:
           throw Exception('unknown type field:$type');
       }

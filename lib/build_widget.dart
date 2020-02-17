@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterette/models/layouts.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/widget_data.dart';
@@ -31,22 +32,32 @@ List<Widget> _buildSectionWidgets(
     List<Section> sections, List<WidgetData> data) {
   return sections
       .map((s) => Column(
-            children: _buildSectionTypeWidgets(s.items, data),
+            children: _buildComponentWidgets(s.items, data),
           ))
       .toList();
 }
 
-List<Widget> _buildSectionTypeWidgets(
-    List<Component> sectionTypes, List<WidgetData> data) {
-  return sectionTypes.map(_buildSectionWidget).toList();
+List<Widget> _buildComponentWidgets(
+    List<Component> components, List<WidgetData> data) {
+  return components.map(_buildComponentWidget).toList();
 }
 
-Widget _buildSectionWidget(Component sectionType) {
-  switch (sectionType.runtimeType) {
+Widget _buildComponentWidget(Component component) {
+  switch (component.runtimeType) {
     case LabelComponent:
-      return Text((sectionType as LabelComponent).text);
+      return Text((component as LabelComponent).text);
     case ImageComponent:
-      return Image.network((sectionType as ImageComponent).url);
+      return Image.network((component as ImageComponent).url);
+    case HorizontalLayoutComponent:
+      return Row(
+        children: _buildComponentWidgets(
+            (component as HorizontalLayoutComponent).components, null),
+      );
+    case VerticalLayoutComponent:
+      return Column(
+        children: _buildComponentWidgets(
+            (component as VerticalLayoutComponent).components, null),
+      );
     default:
       return Container();
   }

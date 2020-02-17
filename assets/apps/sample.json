@@ -11,23 +11,33 @@
                 "body": {
                     "sections": [
                         {
-                            "components": [
+                            "items": [
                                 {
-                                    "type": "image",
-                                    "url": "https://manichord.com/img/blog/manichord.png"
-                                },
-                                {
-                                    "type": "label",
-                                    "text": "JL Picard"
-                                },
-                                {
-                                    "type": "label",
-                                    "text": "Captain"
+                                    "type": "horizontal",
+                                    "components": [
+                                        {
+                                            "type": "image",
+                                            "url": "https://avatars2.githubusercontent.com/u/71999?s=40&v=4"
+                                        },
+                                        {
+                                            "type": "vertical",
+                                            "components": [
+                                                {
+                                                    "type": "label",
+                                                    "text": "JL Picard"
+                                                },
+                                                {
+                                                    "type": "label",
+                                                    "text": "Captain"
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         },
                         {
-                            "components": [
+                            "items": [
                                 {
                                     "type": "label",
                                     "text": "Riker"

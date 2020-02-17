@@ -27,7 +27,7 @@ void main() {
       final testJson = '''{"body": {
                     "sections": [
                         {
-                            "components": [
+                            "items": [
                                 {
                                     "type": "label",
                                     "text": "JL Picard"

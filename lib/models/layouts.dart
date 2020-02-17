@@ -1,0 +1,26 @@
+import 'package:flutterette/models/components.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'layouts.g.dart';
+
+@JsonSerializable()
+class HorizontalLayoutComponent extends Component {
+  final List<Component> components;
+  const HorizontalLayoutComponent(String type, this.components) : super(type);
+
+  factory HorizontalLayoutComponent.fromJson(Map<String, dynamic> json) =>
+      _$HorizontalLayoutComponentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$HorizontalLayoutComponentToJson(this);
+}
+
+@JsonSerializable()
+class VerticalLayoutComponent extends Component {
+  final List<Component> components;
+  const VerticalLayoutComponent(String type, this.components) : super(type);
+
+  factory VerticalLayoutComponent.fromJson(Map<String, dynamic> json) =>
+      _$VerticalLayoutComponentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VerticalLayoutComponentToJson(this);
+}
