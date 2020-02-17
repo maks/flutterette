@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterette/models/section.dart';
-import 'package:flutterette/models/section_type.dart';
+import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/widget_data.dart';
 import 'package:flutterette/models/widget_type.dart';
 
@@ -37,16 +37,16 @@ List<Widget> _buildSectionWidgets(
 }
 
 List<Widget> _buildSectionTypeWidgets(
-    List<SectionType> sectionTypes, List<WidgetData> data) {
+    List<Component> sectionTypes, List<WidgetData> data) {
   return sectionTypes.map(_buildSectionWidget).toList();
 }
 
-Widget _buildSectionWidget(SectionType sectionType) {
+Widget _buildSectionWidget(Component sectionType) {
   switch (sectionType.runtimeType) {
-    case SectionLabel:
-      return Text((sectionType as SectionLabel).text);
-    case SectionImage:
-      return Image.network((sectionType as SectionImage).url);
+    case LabelComponent:
+      return Text((sectionType as LabelComponent).text);
+    case ImageComponent:
+      return Image.network((sectionType as ImageComponent).url);
     default:
       return Container();
   }

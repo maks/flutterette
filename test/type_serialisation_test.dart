@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutterette/models/section.dart';
-import 'package:flutterette/models/section_type.dart';
+import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/widget_type.dart';
 import 'package:test/test.dart';
 
@@ -40,9 +40,9 @@ void main() {
       expect(p, isA<Page>());
       expect(p.body.sections, isA<List<Section>>());
       expect(p.body.sections[0], isA<Section>());
-      expect(p.body.sections[0].components, isA<List<SectionType>>());
+      expect(p.body.sections[0].components, isA<List<Component>>());
       expect(p.body.sections[0].components[0].type, equals('label'));
-      expect((p.body.sections[0].components[0] as SectionLabel).text,
+      expect((p.body.sections[0].components[0] as LabelComponent).text,
           equals('JL Picard'));
     });
   });

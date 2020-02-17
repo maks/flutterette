@@ -10,7 +10,7 @@ Section _$SectionFromJson(Map<String, dynamic> json) {
   return Section(
     components: (json['components'] as List)
         ?.map((e) =>
-            e == null ? null : SectionType.fromJson(e as Map<String, dynamic>))
+            e == null ? null : Component.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }

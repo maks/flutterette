@@ -1,46 +1,45 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'section_type.dart';
+part of 'components.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SectionType _$SectionTypeFromJson(Map<String, dynamic> json) {
+Component _$ComponentFromJson(Map<String, dynamic> json) {
   $checkKeys(json, requiredKeys: const ['type']);
-  return SectionType(
+  return Component(
     json['type'] as String,
   );
 }
 
-Map<String, dynamic> _$SectionTypeToJson(SectionType instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ComponentToJson(Component instance) => <String, dynamic>{
       'type': instance.type,
     };
 
-SectionLabel _$SectionLabelFromJson(Map<String, dynamic> json) {
+LabelComponent _$LabelComponentFromJson(Map<String, dynamic> json) {
   $checkKeys(json, requiredKeys: const ['type']);
-  return SectionLabel(
+  return LabelComponent(
     json['type'] as String,
     json['text'] as String,
   );
 }
 
-Map<String, dynamic> _$SectionLabelToJson(SectionLabel instance) =>
+Map<String, dynamic> _$LabelComponentToJson(LabelComponent instance) =>
     <String, dynamic>{
       'type': instance.type,
       'text': instance.text,
     };
 
-SectionImage _$SectionImageFromJson(Map<String, dynamic> json) {
+ImageComponent _$ImageComponentFromJson(Map<String, dynamic> json) {
   $checkKeys(json, requiredKeys: const ['type']);
-  return SectionImage(
+  return ImageComponent(
     json['type'] as String,
     json['url'] as String,
   );
 }
 
-Map<String, dynamic> _$SectionImageToJson(SectionImage instance) =>
+Map<String, dynamic> _$ImageComponentToJson(ImageComponent instance) =>
     <String, dynamic>{
       'type': instance.type,
       'url': instance.url,
