@@ -43,8 +43,10 @@ List<Widget> _buildSectionTypeWidgets(
 
 Widget _buildSectionWidget(SectionType sectionType) {
   switch (sectionType.runtimeType) {
-    case Label:
-      return Text((sectionType as Label).text);
+    case SectionLabel:
+      return Text((sectionType as SectionLabel).text);
+    case SectionImage:
+      return Image.network((sectionType as SectionImage).url);
     default:
       return Container();
   }

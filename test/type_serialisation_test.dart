@@ -42,7 +42,7 @@ void main() {
       expect(p.body.sections[0], isA<Section>());
       expect(p.body.sections[0].components, isA<List<SectionType>>());
       expect(p.body.sections[0].components[0].type, equals('label'));
-      expect((p.body.sections[0].components[0] as Label).text,
+      expect((p.body.sections[0].components[0] as SectionLabel).text,
           equals('JL Picard'));
     });
   });

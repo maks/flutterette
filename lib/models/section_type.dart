@@ -14,7 +14,9 @@ class SectionType {
       final String type = json['type'] as String;
       switch (type) {
         case 'label':
-          return Label.fromJson(json);
+          return SectionLabel.fromJson(json);
+        case 'image':
+          return SectionImage.fromJson(json);
         default:
           throw Exception('unknown type field:$type');
       }
@@ -25,12 +27,25 @@ class SectionType {
 }
 
 @JsonSerializable()
-class Label extends SectionType {
+class SectionLabel extends SectionType {
   final String text;
 
-  const Label(String type, this.text) : super(type);
+  const SectionLabel(String type, this.text) : super(type);
 
-  factory Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);
+  factory SectionLabel.fromJson(Map<String, dynamic> json) =>
+      _$SectionLabelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$LabelToJson(this);
+  Map<String, dynamic> toJson() => _$SectionLabelToJson(this);
+}
+
+@JsonSerializable()
+class SectionImage extends SectionType {
+  final String url;
+
+  const SectionImage(String type, this.url) : super(type);
+
+  factory SectionImage.fromJson(Map<String, dynamic> json) =>
+      _$SectionImageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SectionImageToJson(this);
 }

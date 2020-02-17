@@ -18,15 +18,30 @@ Map<String, dynamic> _$SectionTypeToJson(SectionType instance) =>
       'type': instance.type,
     };
 
-Label _$LabelFromJson(Map<String, dynamic> json) {
+SectionLabel _$SectionLabelFromJson(Map<String, dynamic> json) {
   $checkKeys(json, requiredKeys: const ['type']);
-  return Label(
+  return SectionLabel(
     json['type'] as String,
     json['text'] as String,
   );
 }
 
-Map<String, dynamic> _$LabelToJson(Label instance) => <String, dynamic>{
+Map<String, dynamic> _$SectionLabelToJson(SectionLabel instance) =>
+    <String, dynamic>{
       'type': instance.type,
       'text': instance.text,
+    };
+
+SectionImage _$SectionImageFromJson(Map<String, dynamic> json) {
+  $checkKeys(json, requiredKeys: const ['type']);
+  return SectionImage(
+    json['type'] as String,
+    json['url'] as String,
+  );
+}
+
+Map<String, dynamic> _$SectionImageToJson(SectionImage instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'url': instance.url,
     };
