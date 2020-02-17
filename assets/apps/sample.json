@@ -26,7 +26,10 @@
                                                     "type": "label",
                                                     "text": "JL Picard",
                                                     "style": {
-                                                        "color" : "#ff0000"
+                                                        "color" : "#ff0000",
+                                                        "padding": {
+                                                            "top": 10
+                                                        }
                                                     }
                                                 },
                                                 {

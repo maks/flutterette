@@ -19,6 +19,7 @@ class AppPlayer extends StatelessWidget {
                 primarySwatch: Colors.blue,
               ),
               home: buildWidget(
+                context,
                 app.pages[0],
                 null,
               ),

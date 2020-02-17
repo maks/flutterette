@@ -18,7 +18,7 @@ class HexColor extends Color {
       if (color.length == 6) {
         color = "FF" + color;
       }
-    } on Exception catch (e) {
+    } on Exception catch (_) {
       return Colors.white.value;
     }
     return int.parse(color, radix: 16);
