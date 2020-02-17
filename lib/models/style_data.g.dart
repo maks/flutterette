@@ -7,8 +7,19 @@ part of 'style_data.dart';
 // **************************************************************************
 
 StyleData _$StyleDataFromJson(Map<String, dynamic> json) {
-  return StyleData();
+  return StyleData(
+    json['color'] as String,
+    json['font'] as String,
+    json['width'] as String,
+    json['height'] as String,
+    (json['padding'] as num)?.toDouble(),
+  );
 }
 
-Map<String, dynamic> _$StyleDataToJson(StyleData instance) =>
-    <String, dynamic>{};
+Map<String, dynamic> _$StyleDataToJson(StyleData instance) => <String, dynamic>{
+      'color': instance.color,
+      'font': instance.font,
+      'width': instance.width,
+      'height': instance.height,
+      'padding': instance.padding,
+    };

@@ -24,11 +24,17 @@
                                             "components": [
                                                 {
                                                     "type": "label",
-                                                    "text": "JL Picard"
+                                                    "text": "JL Picard",
+                                                    "style": {
+                                                        "color" : "#ff0000"
+                                                    }
                                                 },
                                                 {
                                                     "type": "label",
-                                                    "text": "Captain"
+                                                    "text": "Captain",
+                                                    "style": {
+                                                        "color" : "#0000ff"
+                                                    }
                                                 }
                                             ]
                                         }

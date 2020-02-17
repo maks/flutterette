@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterette/color.dart';
 import 'package:flutterette/models/layouts.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:flutterette/models/components.dart';
@@ -45,7 +46,13 @@ List<Widget> _buildComponentWidgets(
 Widget _buildComponentWidget(Component component) {
   switch (component.runtimeType) {
     case LabelComponent:
-      return Text((component as LabelComponent).text);
+      final label = (component as LabelComponent);
+      return Text(
+        label.text,
+        style: label.style != null
+            ? TextStyle(color: HexColor(label.style?.color))
+            : null,
+      );
     case ImageComponent:
       return Image.network((component as ImageComponent).url);
     case HorizontalLayoutComponent:

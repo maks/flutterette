@@ -1,4 +1,5 @@
 import 'package:flutterette/models/layouts.dart';
+import 'package:flutterette/models/style_data.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'components.g.dart';
@@ -7,8 +8,9 @@ part 'components.g.dart';
 class Component {
   @JsonKey(required: true)
   final String type;
+  final StyleData style;
 
-  const Component(this.type);
+  const Component(this.type, this.style);
 
   factory Component.fromJson(Map<String, dynamic> json) {
     if (json is Map<String, dynamic> && json.containsKey('type')) {
@@ -35,7 +37,8 @@ class Component {
 class LabelComponent extends Component {
   final String text;
 
-  const LabelComponent(String type, this.text) : super(type);
+  const LabelComponent(String type, StyleData style, this.text)
+      : super(type, style);
 
   factory LabelComponent.fromJson(Map<String, dynamic> json) =>
       _$LabelComponentFromJson(json);
@@ -47,7 +50,8 @@ class LabelComponent extends Component {
 class ImageComponent extends Component {
   final String url;
 
-  const ImageComponent(String type, this.url) : super(type);
+  const ImageComponent(String type, StyleData style, this.url)
+      : super(type, style);
 
   factory ImageComponent.fromJson(Map<String, dynamic> json) =>
       _$ImageComponentFromJson(json);
