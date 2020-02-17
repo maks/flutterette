@@ -1,3 +1,4 @@
+import 'package:flutterette/models/section.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'widget_type.g.dart';
@@ -21,7 +22,8 @@ class Page implements WidgetType {
 
 @JsonSerializable()
 class Body implements WidgetType {
-  const Body();
+  final List<Section> sections;
+  const Body(this.sections);
 
   factory Body.fromJson(Map<String, dynamic> json) => _$BodyFromJson(json);
 

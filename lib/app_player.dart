@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterette/bloc/app_bloc.dart';
 import 'package:flutterette/build_widget.dart';
 import 'package:flutterette/models/f_app.dart';
-import 'package:flutterette/models/widget_type.dart';
 import 'package:provider/provider.dart';
 
 class AppPlayer extends StatelessWidget {

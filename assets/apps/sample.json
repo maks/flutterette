@@ -1,18 +1,42 @@
 {
-    "flutterette" : {
-        "head" : {
-            "title" : "A Flutterette App"
+    "flutterette": {
+        "head": {
+            "title": "A Flutterette App"
         },
-        "pages" : [
+        "pages": [
             {
                 "header": {
                     "title": "Test App"
                 },
                 "body": {
-                    
+                    "sections": [
+                        {
+                            "components": [
+                                {
+                                    "type": "label",
+                                    "text": "JL Picard"
+                                },
+                                {
+                                    "type": "label",
+                                    "text": "Captain"
+                                }
+                            ]
+                        },
+                        {
+                            "components": [
+                                {
+                                    "type": "label",
+                                    "text": "Riker"
+                                },
+                                {
+                                    "type": "label",
+                                    "text": "Number 1"
+                                }
+                            ]
+                        }
+                    ]
                 }
             }
         ]
-
     }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterette/models/section.dart';
+import 'package:flutterette/models/section_type.dart';
 import 'package:flutterette/models/widget_data.dart';
 import 'package:flutterette/models/widget_type.dart';
 
@@ -16,8 +18,33 @@ Widget buildWidget(WidgetType widgetType, WidgetData data) {
       );
     case Body:
       return Container(
-        child: Text('Body'),
+        child: Column(
+          children: _buildSectionWidgets((widgetType as Body).sections, null),
+        ),
       );
+    default:
+      return Container();
+  }
+}
+
+List<Widget> _buildSectionWidgets(
+    List<Section> sections, List<WidgetData> data) {
+  return sections
+      .map((s) => Column(
+            children: _buildSectionTypeWidgets(s.components, data),
+          ))
+      .toList();
+}
+
+List<Widget> _buildSectionTypeWidgets(
+    List<SectionType> sectionTypes, List<WidgetData> data) {
+  return sectionTypes.map(_buildSectionWidget).toList();
+}
+
+Widget _buildSectionWidget(SectionType sectionType) {
+  switch (sectionType.runtimeType) {
+    case Label:
+      return Text((sectionType as Label).text);
     default:
       return Container();
   }

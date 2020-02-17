@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-
+// ignore_for_file: implicit_dynamic_parameter
 part of 'widget_type.dart';
 
 // **************************************************************************
@@ -23,10 +23,17 @@ Map<String, dynamic> _$PageToJson(Page instance) => <String, dynamic>{
     };
 
 Body _$BodyFromJson(Map<String, dynamic> json) {
-  return Body();
+  return Body(
+    (json['sections'] as List)
+        ?.map((e) =>
+            e == null ? null : Section.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+  );
 }
 
-Map<String, dynamic> _$BodyToJson(Body instance) => <String, dynamic>{};
+Map<String, dynamic> _$BodyToJson(Body instance) => <String, dynamic>{
+      'sections': instance.sections,
+    };
 
 Header _$HeaderFromJson(Map<String, dynamic> json) {
   return Header(

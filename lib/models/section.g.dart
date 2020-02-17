@@ -1,0 +1,20 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: implicit_dynamic_parameter
+part of 'section.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Section _$SectionFromJson(Map<String, dynamic> json) {
+  return Section(
+    components: (json['components'] as List)
+        ?.map((e) =>
+            e == null ? null : SectionType.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+  );
+}
+
+Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
+      'components': instance.components,
+    };
