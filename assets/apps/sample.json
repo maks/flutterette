@@ -29,6 +29,9 @@
                                                         "color" : "#ff0000",
                                                         "padding": {
                                                             "top": 10
+                                                        },
+                                                        "font" : {
+                                                            "size": 24
                                                         }
                                                     }
                                                 },
@@ -36,7 +39,10 @@
                                                     "type": "label",
                                                     "text": "Captain",
                                                     "style": {
-                                                        "color" : "#0000ff"
+                                                        "color" : "#0000ff",
+                                                        "font": {
+                                                            "style": "italic"
+                                                        }
                                                     }
                                                 }
                                             ]

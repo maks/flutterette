@@ -9,7 +9,9 @@ part of 'style_data.dart';
 StyleData _$StyleDataFromJson(Map<String, dynamic> json) {
   return StyleData(
     json['color'] as String,
-    json['font'] as String,
+    json['font'] == null
+        ? null
+        : FontData.fromJson(json['font'] as Map<String, dynamic>),
     json['width'] as String,
     json['height'] as String,
     json['padding'] == null
@@ -41,4 +43,18 @@ Map<String, dynamic> _$PaddingDataToJson(PaddingData instance) =>
       'right': instance.right,
       'top': instance.top,
       'bottom': instance.bottom,
+    };
+
+FontData _$FontDataFromJson(Map<String, dynamic> json) {
+  return FontData(
+    (json['size'] as num)?.toDouble(),
+    json['family'] as String,
+    json['style'] as String,
+  );
+}
+
+Map<String, dynamic> _$FontDataToJson(FontData instance) => <String, dynamic>{
+      'size': instance.size,
+      'family': instance.family,
+      'style': instance.style,
     };

@@ -38,6 +38,7 @@ List<Widget> _buildSectionWidgets(
     BuildContext context, List<Section> sections, List<WidgetData> data) {
   return sections
       .map((s) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: _buildComponentWidgets(context, s.items, data),
           ))
       .toList();
@@ -79,12 +80,20 @@ Widget _buildComponentWidget(BuildContext context, Component component) {
 
 /// map StyleData into a Flutter TextStyle
 TextStyle _buildTextStyle(BuildContext context, StyleData style) {
+  final defaultTextStyle = Theme.of(context).textTheme.body1;
+
   if (style != null) {
-    return TextStyle(
+    final textStyle = TextStyle(
+      inherit: true,
       color: HexColor(style.color),
+      fontSize: style.font?.size,
+      fontFamily: style.font?.family,
+      fontStyle:
+          (true == style.font?.isItalic) ? FontStyle.italic : FontStyle.normal,
     );
+    return defaultTextStyle.merge(textStyle);
   } else {
-    return Theme.of(context).textTheme.body1;
+    return defaultTextStyle;
   }
 }
 

@@ -5,7 +5,7 @@ part 'style_data.g.dart';
 @JsonSerializable()
 class StyleData {
   final String color;
-  final String font;
+  final FontData font;
   final String width;
   final String height;
   final PaddingData padding;
@@ -31,4 +31,20 @@ class PaddingData {
       _$PaddingDataFromJson(json);
 
   Map<String, dynamic> toJson() => _$PaddingDataToJson(this);
+}
+
+@JsonSerializable()
+class FontData {
+  final double size;
+  final String family;
+  final String style;
+
+  bool get isItalic => (style == 'italic');
+
+  const FontData(this.size, this.family, this.style);
+
+  factory FontData.fromJson(Map<String, dynamic> json) =>
+      _$FontDataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FontDataToJson(this);
 }
