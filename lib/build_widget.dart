@@ -6,6 +6,7 @@ import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/style_data.dart';
 import 'package:flutterette/models/widget_data.dart';
 import 'package:flutterette/models/widget_type.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Widget buildWidget(
     BuildContext context, WidgetType widgetType, WidgetData data) {
@@ -85,7 +86,7 @@ TextStyle _buildTextStyle(BuildContext context, StyleData style) {
   final defaultTextStyle = Theme.of(context).textTheme.body1;
 
   if (style != null) {
-    final textStyle = TextStyle(
+    TextStyle textStyle = TextStyle(
       inherit: true,
       color: HexColor(style.color),
       fontSize: style.font?.size,
@@ -93,6 +94,9 @@ TextStyle _buildTextStyle(BuildContext context, StyleData style) {
       fontStyle:
           (true == style.font?.isItalic) ? FontStyle.italic : FontStyle.normal,
     );
+    if (style.font?.family != null) {
+      textStyle = GoogleFonts.pacifico(textStyle: textStyle);
+    }
     return defaultTextStyle.merge(textStyle);
   } else {
     return defaultTextStyle;
