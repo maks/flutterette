@@ -17,10 +17,13 @@ class AppBloc {
   }
 
   Future<void> _loadAppAsAsset() async {
-    final j =
+    final json =
         (jsonDecode(await rootBundle.loadString('assets/apps/sample.json'))
             as Map<String, dynamic>);
-    _currentApp = FApp.fromJson(j['flutterette'] as Map<String, dynamic>);
+    _currentApp = FApp.fromJson(getFlutteretteRoot(json));
     _appStream.add(_currentApp);
   }
+
+  static Map<String, dynamic> getFlutteretteRoot(Map<String, dynamic> json) =>
+      json['flutterette'] as Map<String, dynamic>;
 }

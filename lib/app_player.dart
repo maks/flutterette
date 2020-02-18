@@ -12,7 +12,7 @@ class AppPlayer extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final app = snapshot.data;
-            final appTitle = app.head.title ?? 'Flutterette';
+            final appTitle = app.head?.title ?? 'Flutterette';
             return MaterialApp(
               title: appTitle,
               theme: ThemeData(
@@ -20,7 +20,7 @@ class AppPlayer extends StatelessWidget {
               ),
               home: buildWidget(
                 context,
-                app.pages[0],
+                app.firstPage,
                 null,
               ),
             );

@@ -14,7 +14,9 @@ Widget buildWidget(
       final p = (widgetType as Page);
       return Scaffold(
         body: buildWidget(context, p.body, null),
-        appBar: buildWidget(context, p.header, null) as AppBar,
+        appBar: p.header != null
+            ? buildWidget(context, p.header, null) as AppBar
+            : null,
       );
     case Header:
       return AppBar(
