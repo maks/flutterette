@@ -25,9 +25,7 @@ Widget buildWidget(
       );
     case Body:
       return Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: _buildSectionWidgets(
               context, (widgetType as Body).sections, null),
         ),
