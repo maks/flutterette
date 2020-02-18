@@ -1,0 +1,38 @@
+import 'package:flutter/painting.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+/// Google Fonts package has no way of asking for a font via a String
+/// and without reflection we need to aps strings to functions in the package
+/// Need to find way to code gen for all fonts but for now a selection of most
+/// popular per: https://fonts.google.com/analytics and some of my personal favs
+
+Map<String, TextStyle Function({TextStyle textStyle})> fontMap = {
+  'mcLaren': GoogleFonts.mcLaren,
+  'pacifico': GoogleFonts.pacifico,
+  'roboto': GoogleFonts.roboto,
+  'robotoMono': GoogleFonts.robotoMono,
+  'droidSans': GoogleFonts.droidSans,
+  'droidSansMono': GoogleFonts.droidSansMono,
+  'ubuntu': GoogleFonts.ubuntu,
+  'ubuntuMono': GoogleFonts.ubuntuMono,
+  'openSans': GoogleFonts.openSans,
+  'lato': GoogleFonts.lato,
+  'slabo27px': GoogleFonts.slabo27px,
+  'oswald': GoogleFonts.oswald,
+  'sourceSansPro': GoogleFonts.sourceSansPro,
+  'sourceSerifPro': GoogleFonts.sourceSerifPro,
+  'sourceCodePro': GoogleFonts.sourceCodePro,
+  'montserrat': GoogleFonts.montserrat,
+  'pTSans': GoogleFonts.pTSans,
+  'pTSansNarrow': GoogleFonts.pTSansNarrow,
+  'pTSerif': GoogleFonts.pTSerif,
+  'raleway': GoogleFonts.raleway,
+  'lora': GoogleFonts.lora,
+  'merriweather': GoogleFonts.merriweather,
+  'notoSans': GoogleFonts.notoSans,
+  'playfairDisplay': GoogleFonts.playfairDisplay,
+  'poppins': GoogleFonts.poppins,
+  'arimo': GoogleFonts.arimo,
+  'titilliumWeb': GoogleFonts.titilliumWeb,
+  'muli': GoogleFonts.muli,
+};

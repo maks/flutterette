@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterette/color.dart';
+import 'package:flutterette/font_map.dart';
 import 'package:flutterette/models/layouts.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:flutterette/models/components.dart';
@@ -85,7 +86,7 @@ TextStyle _buildTextStyle(BuildContext context, StyleData style) {
   final defaultTextStyle = Theme.of(context).textTheme.body1;
 
   if (style != null) {
-    final textStyle = TextStyle(
+    TextStyle textStyle = TextStyle(
       inherit: true,
       color: HexColor(style.color),
       fontSize: style.font?.size,
@@ -93,6 +94,13 @@ TextStyle _buildTextStyle(BuildContext context, StyleData style) {
       fontStyle:
           (true == style.font?.isItalic) ? FontStyle.italic : FontStyle.normal,
     );
+    if (style.font?.family != null) {
+      final TextStyle Function({TextStyle textStyle}) fontFunction =
+          fontMap[style.font.family];
+      textStyle = (fontFunction != null)
+          ? fontFunction(textStyle: textStyle)
+          : textStyle;
+    }
     return defaultTextStyle.merge(textStyle);
   } else {
     return defaultTextStyle;

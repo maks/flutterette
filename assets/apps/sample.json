@@ -31,7 +31,8 @@
                                                             "top": 10
                                                         },
                                                         "font" : {
-                                                            "size": 24
+                                                            "size": 24,
+                                                            "family": "lato"
                                                         }
                                                     }
                                                 },
