@@ -42,8 +42,6 @@ class LabelComponent extends Component {
 
   factory LabelComponent.fromJson(Map<String, dynamic> json) =>
       _$LabelComponentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$LabelComponentToJson(this);
 }
 
 @JsonSerializable()
@@ -55,6 +53,4 @@ class ImageComponent extends Component {
 
   factory ImageComponent.fromJson(Map<String, dynamic> json) =>
       _$ImageComponentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ImageComponentToJson(this);
 }

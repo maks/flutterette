@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element
+
 part of 'components.dart';
 
 // **************************************************************************
@@ -16,11 +16,6 @@ Component _$ComponentFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ComponentToJson(Component instance) => <String, dynamic>{
-      'type': instance.type,
-      'style': instance.style,
-    };
-
 LabelComponent _$LabelComponentFromJson(Map<String, dynamic> json) {
   $checkKeys(json, requiredKeys: const ['type']);
   return LabelComponent(
@@ -32,13 +27,6 @@ LabelComponent _$LabelComponentFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LabelComponentToJson(LabelComponent instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'style': instance.style,
-      'text': instance.text,
-    };
-
 ImageComponent _$ImageComponentFromJson(Map<String, dynamic> json) {
   $checkKeys(json, requiredKeys: const ['type']);
   return ImageComponent(
@@ -49,10 +37,3 @@ ImageComponent _$ImageComponentFromJson(Map<String, dynamic> json) {
     json['url'] as String,
   );
 }
-
-Map<String, dynamic> _$ImageComponentToJson(ImageComponent instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'style': instance.style,
-      'url': instance.url,
-    };

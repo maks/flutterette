@@ -17,11 +17,6 @@ Page _$PageFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PageToJson(Page instance) => <String, dynamic>{
-      'body': instance.body,
-      'header': instance.header,
-    };
-
 Body _$BodyFromJson(Map<String, dynamic> json) {
   return Body(
     (json['sections'] as List)
@@ -31,16 +26,8 @@ Body _$BodyFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BodyToJson(Body instance) => <String, dynamic>{
-      'sections': instance.sections,
-    };
-
 Header _$HeaderFromJson(Map<String, dynamic> json) {
   return Header(
     title: json['title'] as String,
   );
 }
-
-Map<String, dynamic> _$HeaderToJson(Header instance) => <String, dynamic>{
-      'title': instance.title,
-    };

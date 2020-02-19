@@ -14,6 +14,4 @@ class ListSection implements Section {
 
   factory ListSection.fromJson(Map<String, dynamic> json) =>
       _$ListSectionFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ListSectionToJson(this);
 }

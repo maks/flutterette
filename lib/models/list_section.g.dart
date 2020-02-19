@@ -16,9 +16,3 @@ ListSection _$ListSectionFromJson(Map<String, dynamic> json) {
         : Component.fromJson(json['template'] as Map<String, dynamic>),
   );
 }
-
-Map<String, dynamic> _$ListSectionToJson(ListSection instance) =>
-    <String, dynamic>{
-      'dataSource': instance.dataSource,
-      'template': instance.template,
-    };

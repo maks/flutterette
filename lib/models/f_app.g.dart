@@ -17,8 +17,3 @@ FApp _$FAppFromJson(Map<String, dynamic> json) {
         ?.toList(),
   );
 }
-
-Map<String, dynamic> _$FAppToJson(FApp instance) => <String, dynamic>{
-      'head': instance.head,
-      'pages': instance.pages,
-    };

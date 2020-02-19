@@ -16,10 +16,3 @@ Head _$HeadFromJson(Map<String, dynamic> json) {
         : StyleData.fromJson(json['style'] as Map<String, dynamic>),
   );
 }
-
-Map<String, dynamic> _$HeadToJson(Head instance) => <String, dynamic>{
-      'title': instance.title,
-      'description': instance.description,
-      'icon': instance.icon,
-      'style': instance.style,
-    };

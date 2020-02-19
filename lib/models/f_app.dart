@@ -14,6 +14,4 @@ class FApp {
   Page get firstPage => (pages != null && pages.isNotEmpty) ? pages[0] : Page();
 
   factory FApp.fromJson(Map<String, dynamic> json) => _$FAppFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FAppToJson(this);
 }

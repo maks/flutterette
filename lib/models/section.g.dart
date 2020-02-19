@@ -1,5 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: implicit_dynamic_parameter
+// ignore_for_file: unused_function
+
 part of 'section.dart';
 
 // **************************************************************************

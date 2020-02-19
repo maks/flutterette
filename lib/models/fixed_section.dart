@@ -12,6 +12,4 @@ class FixedSection implements Section {
 
   factory FixedSection.fromJson(Map<String, dynamic> json) =>
       _$FixedSectionFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FixedSectionToJson(this);
 }

@@ -14,8 +14,6 @@ class StyleData {
 
   factory StyleData.fromJson(Map<String, dynamic> json) =>
       _$StyleDataFromJson(json);
-
-  Map<String, dynamic> toJson() => _$StyleDataToJson(this);
 }
 
 @JsonSerializable()
@@ -29,8 +27,6 @@ class PaddingData {
 
   factory PaddingData.fromJson(Map<String, dynamic> json) =>
       _$PaddingDataFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PaddingDataToJson(this);
 }
 
 @JsonSerializable()
@@ -45,6 +41,4 @@ class FontData {
 
   factory FontData.fromJson(Map<String, dynamic> json) =>
       _$FontDataFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FontDataToJson(this);
 }

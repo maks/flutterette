@@ -11,8 +11,3 @@ DataSource _$DataSourceFromJson(Map<String, dynamic> json) {
     json['url'] as String,
   );
 }
-
-Map<String, dynamic> _$DataSourceToJson(DataSource instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-    };

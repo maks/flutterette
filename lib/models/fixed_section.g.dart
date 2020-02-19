@@ -14,8 +14,3 @@ FixedSection _$FixedSectionFromJson(Map<String, dynamic> json) {
         ?.toList(),
   );
 }
-
-Map<String, dynamic> _$FixedSectionToJson(FixedSection instance) =>
-    <String, dynamic>{
-      'items': instance.items,
-    };

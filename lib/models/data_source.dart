@@ -10,6 +10,4 @@ class DataSource {
 
   factory DataSource.fromJson(Map<String, dynamic> json) =>
       _$DataSourceFromJson(json);
-
-  Map<String, dynamic> toJson() => _$DataSourceToJson(this);
 }
