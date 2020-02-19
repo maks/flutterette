@@ -11,6 +11,11 @@
                 "body": {
                     "sections": [
                         {
+                            "dataSource" : {
+                                
+                            }
+                        },
+                        {
                             "items": [
                                 {
                                     "type": "horizontal",
@@ -28,10 +33,10 @@
                                                     "style": {
                                                         "color" : "#ff0000",
                                                         "padding": {
-                                                            "top": 10
+                                                            "top": 100
                                                         },
                                                         "font" : {
-                                                            "size": 24,
+                                                            "size": 40,
                                                             "family": "lato"
                                                         }
                                                     }
@@ -40,8 +45,12 @@
                                                     "type": "label",
                                                     "text": "Captain",
                                                     "style": {
+                                                        "padding": {
+                                                            "top": 100
+                                                        },
                                                         "color" : "#0000ff",
                                                         "font": {
+                                                            "size" : 30,
                                                             "style": "italic"
                                                         }
                                                     }

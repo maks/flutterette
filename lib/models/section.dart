@@ -1,17 +1,19 @@
-import 'package:flutterette/models/components.dart';
+import 'package:flutterette/models/fixed_section.dart';
+import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/widget_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'section.g.dart';
 
-@JsonSerializable()
-class Section implements WidgetType {
-  final List<Component> items;
+@JsonSerializable(createFactory: false)
+abstract class Section implements WidgetType {
+  const Section();
 
-  const Section({this.items});
-
-  factory Section.fromJson(Map<String, dynamic> json) =>
-      _$SectionFromJson(json);
-
-  Map<String, dynamic> toJson() => _$SectionToJson(this);
+  factory Section.fromJson(Map<String, dynamic> json) {
+    if (json != null && json['items'] != null) {
+      return FixedSection.fromJson(json);
+    } else {
+      return ListSection.fromJson(json);
+    }
+  }
 }

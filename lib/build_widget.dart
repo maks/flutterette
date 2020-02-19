@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterette/color.dart';
 import 'package:flutterette/font_map.dart';
+import 'package:flutterette/models/fixed_section.dart';
 import 'package:flutterette/models/layouts.dart';
+import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/style_data.dart';
@@ -37,17 +39,30 @@ Widget buildWidget(
 
 List<Widget> _buildSectionWidgets(
     BuildContext context, List<Section> sections, List<WidgetData> data) {
-  return sections
-      .map((s) => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _buildComponentWidgets(context, s.items, data),
-          ))
-      .toList();
+  return sections.map((section) {
+    switch (section.runtimeType) {
+      case FixedSection:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _buildComponentWidgets(
+              context, (section as FixedSection).items, data),
+        );
+      case ListSection:
+        return _buildListWidgets(context, section as ListSection, data);
+      default:
+        throw Exception('invalid Section type: ${section.runtimeType}');
+    }
+  }).toList();
 }
 
 List<Widget> _buildComponentWidgets(
     BuildContext context, List<Component> components, List<WidgetData> data) {
   return components.map((c) => _buildComponentWidget(context, c)).toList();
+}
+
+ListView _buildListWidgets(
+    BuildContext context, ListSection listSection, List<WidgetData> data) {
+  return ListView(); //TODO: actually use listSection to build the Listview
 }
 
 Widget _buildComponentWidget(BuildContext context, Component component) {
