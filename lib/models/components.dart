@@ -4,8 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'components.g.dart';
 
-@JsonSerializable()
-class Component {
+@JsonSerializable(createFactory: false)
+abstract class Component {
   @JsonKey(required: true)
   final String type;
   final StyleData style;
