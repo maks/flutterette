@@ -9,11 +9,14 @@
                     "title": "Test App"
                 },
                 "body": {
-                    "sections": [
+                    "sections": [                        
                         {
-                            "dataSource": {}
-                        },
-                        {
+                            "dataSource": {
+                                "data": {
+                                    "name": "Enterprise",
+                                    "id": "NCC-1701"
+                                }
+                            },
                             "component": {
                                 "type": "horizontal",
                                 "components": [
@@ -26,11 +29,11 @@
                                         "components": [
                                             {
                                                 "type": "label",
-                                                "text": "JL Picard",
+                                                "text": "name",
                                                 "style": {
                                                     "color": "#ff0000",
                                                     "padding": {
-                                                        "top": 100
+                                                        "top": 16
                                                     },
                                                     "font": {
                                                         "size": 40,
@@ -40,10 +43,11 @@
                                             },
                                             {
                                                 "type": "label",
-                                                "text": "Captain",
+                                                "text": "id",
                                                 "style": {
                                                     "padding": {
-                                                        "top": 100
+                                                        "top": 16,
+                                                        "bottom": 16
                                                     },
                                                     "color": "#0000ff",
                                                     "font": {
@@ -58,16 +62,91 @@
                             }
                         },
                         {
-                            "items": [
-                                {
-                                    "type": "label",
-                                    "text": "Riker"
-                                },
-                                {
-                                    "type": "label",
-                                    "text": "Number 1"
-                                }
-                            ]
+                            "dataSource": {
+                                "listData": [
+                                    {
+                                        "name": "JL Picard",
+                                        "rank": "Captain"
+                                    },
+                                    {
+                                        "name": "Riker",
+                                        "rank": "Number 1"
+                                    },
+                                    {
+                                        "name": "Data",
+                                        "rank": "Commander"
+                                    },
+                                    {
+                                        "name": "JL Picard",
+                                        "rank": "Captain"
+                                    },
+                                    {
+                                        "name": "Riker",
+                                        "rank": "Number 1"
+                                    },
+                                    {
+                                        "name": "Data",
+                                        "rank": "Commander"
+                                    },
+                                    {
+                                        "name": "JL Picard",
+                                        "rank": "Captain"
+                                    },
+                                    {
+                                        "name": "Riker",
+                                        "rank": "Number 1"
+                                    },
+                                    {
+                                        "name": "Data",
+                                        "rank": "Commander"
+                                    },
+                                    {
+                                        "name": "JL Picard",
+                                        "rank": "Captain"
+                                    },
+                                    {
+                                        "name": "Riker",
+                                        "rank": "Number 1"
+                                    },
+                                    {
+                                        "name": "Data",
+                                        "rank": "Commander"
+                                    }
+                                ]
+                            },
+                            "component": {
+                                "type": "vertical",
+                                "components": [
+                                    {
+                                        "type": "label",
+                                        "text": "name",
+                                        "style": {
+                                            "color": "#ff0000",
+                                            "padding": {
+                                                "top": 8
+                                            },
+                                            "font": {
+                                                "size": 30,
+                                                "family": "lato"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "label",
+                                        "text": "rank",
+                                        "style": {
+                                            "color": "#ff00ff",
+                                            "padding": {
+                                                "top": 8
+                                            },
+                                            "font": {
+                                                "size": 20,
+                                                "family": "lato"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

@@ -25,7 +25,7 @@ Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
       );
     case Body:
       return Container(
-        child: ListView(
+        child: Column(
           children:
               _buildSectionWidgets(context, (widgetType as Body).sections),
         ),
@@ -45,19 +45,24 @@ List<Widget> _buildSectionWidgets(
               (section as FixedSection).component, section.dataSource.data),
         );
       case ListSection:
+        final listSection = section as ListSection;
         return _buildListWidget(
-            context, (section as ListSection).dataSource.listData);
+            context, listSection.dataSource.listData, listSection.component);
       default:
         throw Exception('invalid Section type: ${section.runtimeType}');
     }
   }).toList();
 }
 
-ListView _buildListWidget(BuildContext context, List<Map> listData) {
-  return ListView.builder(
-    itemBuilder: (BuildContext context, int index) {
-      return Container();
-    },
+Widget _buildListWidget(BuildContext context,
+    List<Map<String, dynamic>> listData, Component itemComponent) {
+  return Expanded(
+    child: ListView.builder(
+      itemCount: listData.length,
+      itemBuilder: (BuildContext context, int index) {
+        return _buildComponentWidget(context, itemComponent, listData[index]);
+      },
+    ),
   ); //TODO: actually use listSection to build the Listview
 }
 
