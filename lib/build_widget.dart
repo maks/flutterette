@@ -40,9 +40,13 @@ List<Widget> _buildSectionWidgets(
   return sections.map((section) {
     switch (section.runtimeType) {
       case FixedSection:
-        return Container(
-          child: _buildComponentWidget(context,
-              (section as FixedSection).component, section.dataSource.data),
+        return Expanded(
+          child: ListView(
+            children: [
+              _buildComponentWidget(context,
+                  (section as FixedSection).component, section.dataSource.data)
+            ],
+          ),
         );
       case ListSection:
         final listSection = section as ListSection;
@@ -85,7 +89,10 @@ Widget _buildComponentWidget(
           ),
           label.style);
     case ImageComponent:
-      return Image.network((component as ImageComponent).url);
+      return Image.network(
+        (component as ImageComponent).url,
+        scale: 2.0,
+      );
     case HorizontalLayoutComponent:
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
