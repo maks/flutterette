@@ -4,9 +4,10 @@ part 'data_source.g.dart';
 
 @JsonSerializable()
 class DataSource {
-  final String url;
+  final Map<String, dynamic> data;
+  final List<Map<String, dynamic>> listData;
 
-  const DataSource(this.url);
+  const DataSource(this.data, this.listData);
 
   factory DataSource.fromJson(Map<String, dynamic> json) =>
       _$DataSourceFromJson(json);

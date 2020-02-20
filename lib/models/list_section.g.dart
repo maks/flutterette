@@ -11,8 +11,8 @@ ListSection _$ListSectionFromJson(Map<String, dynamic> json) {
     json['dataSource'] == null
         ? null
         : DataSource.fromJson(json['dataSource'] as Map<String, dynamic>),
-    json['template'] == null
+    json['component'] == null
         ? null
-        : Component.fromJson(json['template'] as Map<String, dynamic>),
+        : Component.fromJson(json['component'] as Map<String, dynamic>),
   );
 }

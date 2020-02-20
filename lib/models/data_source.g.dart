@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-
+// ignore_for_file: implicit_dynamic_parameter
 part of 'data_source.dart';
 
 // **************************************************************************
@@ -8,6 +8,7 @@ part of 'data_source.dart';
 
 DataSource _$DataSourceFromJson(Map<String, dynamic> json) {
   return DataSource(
-    json['url'] as String,
+    json['data'] as Map<String, dynamic>,
+    (json['listData'] as List)?.map((e) => e as Map<String, dynamic>)?.toList(),
   );
 }

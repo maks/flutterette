@@ -7,11 +7,9 @@ import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/style_data.dart';
-import 'package:flutterette/models/widget_data.dart';
 import 'package:flutterette/models/widget_type.dart';
 
-Widget buildWidget(
-    BuildContext context, WidgetType widgetType, WidgetData data) {
+Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
   switch (widgetType.runtimeType) {
     case Page:
       final p = (widgetType as Page);
@@ -28,8 +26,8 @@ Widget buildWidget(
     case Body:
       return Container(
         child: ListView(
-          children: _buildSectionWidgets(
-              context, (widgetType as Body).sections, null),
+          children:
+              _buildSectionWidgets(context, (widgetType as Body).sections),
         ),
       );
     default:
@@ -38,40 +36,46 @@ Widget buildWidget(
 }
 
 List<Widget> _buildSectionWidgets(
-    BuildContext context, List<Section> sections, List<WidgetData> data) {
+    BuildContext context, List<Section> sections) {
   return sections.map((section) {
     switch (section.runtimeType) {
       case FixedSection:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: _buildComponentWidgets(
-              context, (section as FixedSection).items, data),
+        return Container(
+          child: _buildComponentWidget(context,
+              (section as FixedSection).component, section.dataSource.data),
         );
       case ListSection:
-        return _buildListWidgets(context, section as ListSection, data);
+        return _buildListWidget(
+            context, (section as ListSection).dataSource.listData);
       default:
         throw Exception('invalid Section type: ${section.runtimeType}');
     }
   }).toList();
 }
 
-List<Widget> _buildComponentWidgets(
-    BuildContext context, List<Component> components, List<WidgetData> data) {
-  return components.map((c) => _buildComponentWidget(context, c)).toList();
+ListView _buildListWidget(BuildContext context, List<Map> listData) {
+  return ListView.builder(
+    itemBuilder: (BuildContext context, int index) {
+      return Container();
+    },
+  ); //TODO: actually use listSection to build the Listview
 }
 
-ListView _buildListWidgets(
-    BuildContext context, ListSection listSection, List<WidgetData> data) {
-  return ListView(); //TODO: actually use listSection to build the Listview
+List<Widget> _buildComponentWidgets(BuildContext context,
+    List<Component> components, Map<String, dynamic> data) {
+  return components
+      .map((c) => _buildComponentWidget(context, c, data))
+      .toList();
 }
 
-Widget _buildComponentWidget(BuildContext context, Component component) {
+Widget _buildComponentWidget(
+    BuildContext context, Component component, Map<String, dynamic> data) {
   switch (component.runtimeType) {
     case LabelComponent:
       final label = (component as LabelComponent);
       return _applyPadding(
           Text(
-            label.text,
+            data[label.text] as String,
             style: _buildTextStyle(context, label.style),
           ),
           label.style);
@@ -81,13 +85,13 @@ Widget _buildComponentWidget(BuildContext context, Component component) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: _buildComponentWidgets(
-            context, (component as HorizontalLayoutComponent).components, null),
+            context, (component as HorizontalLayoutComponent).components, data),
       );
     case VerticalLayoutComponent:
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: _buildComponentWidgets(
-            context, (component as VerticalLayoutComponent).components, null),
+            context, (component as VerticalLayoutComponent).components, data),
       );
     default:
       return Container();

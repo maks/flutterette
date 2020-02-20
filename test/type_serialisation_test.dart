@@ -27,30 +27,37 @@ void main() {
 
   group('deserialise section types', () {
     test('deserialise section', () {
-      final testJson = '''{"body": {
-                    "sections": [
-                        {
-                            "items": [
-                                {
-                                    "type": "label",
-                                    "text": "JL Picard"
-                                }
-                            ]
-                        }
-                    ]
-                }, "header": null}''';
+      final testJson = '''
+      {
+        "body": 
+        {
+          "sections": [
+            {
+              "component": 
+              {
+                "type": "label",
+                "text": "title"
+              },
+              "dataSource" : {
+                  "data" : {
+                    "title" : "JL Picard"
+                  }
+              }                       
+            }
+        ]
+    }, "header": null}
+    ''';
       final p = Page.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
       expect(p, isA<Page>());
       expect(p.body.sections, isA<List<Section>>());
       expect(p.body.sections[0], isA<FixedSection>());
+      expect((p.body.sections[0] as FixedSection).component, isA<Component>());
       expect(
-          (p.body.sections[0] as FixedSection).items, isA<List<Component>>());
+          (p.body.sections[0] as FixedSection).component.type, equals('label'));
       expect(
-          (p.body.sections[0] as FixedSection).items[0].type, equals('label'));
-      expect(
-          ((p.body.sections[0] as FixedSection).items[0] as LabelComponent)
+          ((p.body.sections[0] as FixedSection).component as LabelComponent)
               .text,
-          equals('JL Picard'));
+          equals('title'));
     });
 
     test('deserialise list section type', () {
@@ -58,7 +65,7 @@ void main() {
                     "sections": [
                         {
                             "dataSource": {
-                              
+                              "listData" : [{}]  
                             }
                         }
                     ]

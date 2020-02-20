@@ -11,55 +11,51 @@
                 "body": {
                     "sections": [
                         {
-                            "dataSource" : {
-                                
-                            }
+                            "dataSource": {}
                         },
                         {
-                            "items": [
-                                {
-                                    "type": "horizontal",
-                                    "components": [
-                                        {
-                                            "type": "image",
-                                            "url": "https://avatars2.githubusercontent.com/u/71999?s=40&v=4"
-                                        },
-                                        {
-                                            "type": "vertical",
-                                            "components": [
-                                                {
-                                                    "type": "label",
-                                                    "text": "JL Picard",
-                                                    "style": {
-                                                        "color" : "#ff0000",
-                                                        "padding": {
-                                                            "top": 100
-                                                        },
-                                                        "font" : {
-                                                            "size": 40,
-                                                            "family": "lato"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "label",
-                                                    "text": "Captain",
-                                                    "style": {
-                                                        "padding": {
-                                                            "top": 100
-                                                        },
-                                                        "color" : "#0000ff",
-                                                        "font": {
-                                                            "size" : 30,
-                                                            "style": "italic"
-                                                        }
+                            "component": {
+                                "type": "horizontal",
+                                "components": [
+                                    {
+                                        "type": "image",
+                                        "url": "https://avatars2.githubusercontent.com/u/71999?s=40&v=4"
+                                    },
+                                    {
+                                        "type": "vertical",
+                                        "components": [
+                                            {
+                                                "type": "label",
+                                                "text": "JL Picard",
+                                                "style": {
+                                                    "color": "#ff0000",
+                                                    "padding": {
+                                                        "top": 100
+                                                    },
+                                                    "font": {
+                                                        "size": 40,
+                                                        "family": "lato"
                                                     }
                                                 }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
+                                            },
+                                            {
+                                                "type": "label",
+                                                "text": "Captain",
+                                                "style": {
+                                                    "padding": {
+                                                        "top": 100
+                                                    },
+                                                    "color": "#0000ff",
+                                                    "font": {
+                                                        "size": 30,
+                                                        "style": "italic"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
                         },
                         {
                             "items": [

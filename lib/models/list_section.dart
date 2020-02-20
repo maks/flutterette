@@ -6,11 +6,9 @@ import 'package:json_annotation/json_annotation.dart';
 part 'list_section.g.dart';
 
 @JsonSerializable()
-class ListSection implements Section {
-  final DataSource dataSource;
-  final Component template;
-
-  const ListSection(this.dataSource, this.template);
+class ListSection extends Section {
+  const ListSection(DataSource dataSource, Component component)
+      : super(dataSource, component);
 
   factory ListSection.fromJson(Map<String, dynamic> json) =>
       _$ListSectionFromJson(json);

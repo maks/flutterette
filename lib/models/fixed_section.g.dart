@@ -8,9 +8,11 @@ part of 'fixed_section.dart';
 
 FixedSection _$FixedSectionFromJson(Map<String, dynamic> json) {
   return FixedSection(
-    items: (json['items'] as List)
-        ?.map((e) =>
-            e == null ? null : Component.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    json['dataSource'] == null
+        ? null
+        : DataSource.fromJson(json['dataSource'] as Map<String, dynamic>),
+    json['component'] == null
+        ? null
+        : Component.fromJson(json['component'] as Map<String, dynamic>),
   );
 }

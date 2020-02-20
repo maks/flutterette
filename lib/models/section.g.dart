@@ -6,4 +6,7 @@ part of 'section.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{};
+Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
+      'dataSource': instance.dataSource,
+      'component': instance.component,
+    };
