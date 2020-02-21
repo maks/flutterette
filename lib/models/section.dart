@@ -1,6 +1,6 @@
 import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/data_source.dart';
-import 'package:flutterette/models/fixed_section.dart';
+import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/widget_type.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -22,7 +22,7 @@ abstract class Section implements WidgetType {
     assert(json['dataSource'] != null);
 
     if (json['dataSource']['data'] != null) {
-      return FixedSection.fromJson(json);
+      return StandardSection.fromJson(json);
     } else if (json['dataSource']['listData'] != null) {
       return ListSection.fromJson(json);
     } else {

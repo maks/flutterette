@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterette/color.dart';
 import 'package:flutterette/font_map.dart';
-import 'package:flutterette/models/fixed_section.dart';
+import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/layouts.dart';
 import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/section.dart';
@@ -39,10 +39,16 @@ List<Widget> _buildSectionWidgets(
     BuildContext context, List<Section> sections) {
   return sections.map((section) {
     switch (section.runtimeType) {
-      case FixedSection:
-        return Container(
-          child: _buildComponentWidget(context,
-              (section as FixedSection).component, section.dataSource.data),
+      case StandardSection:
+        return Expanded(
+          child: ListView(
+            children: [
+              _buildComponentWidget(
+                  context,
+                  (section as StandardSection).component,
+                  section.dataSource.data)
+            ],
+          ),
         );
       case ListSection:
         final listSection = section as ListSection;
@@ -85,7 +91,10 @@ Widget _buildComponentWidget(
           ),
           label.style);
     case ImageComponent:
-      return Image.network((component as ImageComponent).url);
+      return Image.network(
+        (component as ImageComponent).url,
+        scale: 2.0,
+      );
     case HorizontalLayoutComponent:
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
