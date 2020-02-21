@@ -26,7 +26,7 @@ abstract class Section implements WidgetType {
     } else if (json['dataSource']['listData'] != null) {
       return ListSection.fromJson(json);
     } else {
-      throw Exception("invalid section, missing data or listData: ${json}");
+      throw Exception('invalid section, missing data or listData: ${json}');
     }
   }
 }
