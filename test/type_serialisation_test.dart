@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutterette/models/data_source.dart';
-import 'package:flutterette/models/fixed_section.dart';
+import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:flutterette/models/components.dart';
@@ -50,12 +50,13 @@ void main() {
       final p = Page.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
       expect(p, isA<Page>());
       expect(p.body.sections, isA<List<Section>>());
-      expect(p.body.sections[0], isA<FixedSection>());
-      expect((p.body.sections[0] as FixedSection).component, isA<Component>());
+      expect(p.body.sections[0], isA<StandardSection>());
       expect(
-          (p.body.sections[0] as FixedSection).component.type, equals('label'));
+          (p.body.sections[0] as StandardSection).component, isA<Component>());
+      expect((p.body.sections[0] as StandardSection).component.type,
+          equals('label'));
       expect(
-          ((p.body.sections[0] as FixedSection).component as LabelComponent)
+          ((p.body.sections[0] as StandardSection).component as LabelComponent)
               .text,
           equals('title'));
     });

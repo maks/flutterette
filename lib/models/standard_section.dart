@@ -3,13 +3,13 @@ import 'package:flutterette/models/data_source.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'fixed_section.g.dart';
+part 'standard_section.g.dart';
 
 @JsonSerializable()
-class FixedSection extends Section {
-  const FixedSection(DataSource dataSource, Component component)
+class StandardSection extends Section {
+  const StandardSection(DataSource dataSource, Component component)
       : super(dataSource, component);
 
-  factory FixedSection.fromJson(Map<String, dynamic> json) =>
-      _$FixedSectionFromJson(json);
+  factory StandardSection.fromJson(Map<String, dynamic> json) =>
+      _$StandardSectionFromJson(json);
 }
