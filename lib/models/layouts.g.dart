@@ -21,14 +21,6 @@ HorizontalLayoutComponent _$HorizontalLayoutComponentFromJson(
   );
 }
 
-Map<String, dynamic> _$HorizontalLayoutComponentToJson(
-        HorizontalLayoutComponent instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'style': instance.style,
-      'components': instance.components,
-    };
-
 VerticalLayoutComponent _$VerticalLayoutComponentFromJson(
     Map<String, dynamic> json) {
   $checkKeys(json, requiredKeys: const ['type']);
@@ -43,11 +35,3 @@ VerticalLayoutComponent _$VerticalLayoutComponentFromJson(
         ?.toList(),
   );
 }
-
-Map<String, dynamic> _$VerticalLayoutComponentToJson(
-        VerticalLayoutComponent instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'style': instance.style,
-      'components': instance.components,
-    };

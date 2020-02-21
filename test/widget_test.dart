@@ -77,9 +77,13 @@ const String singleSectionAppJson = '''{
         "body": {
           "sections": [
             {
-              "items": [
-                {"type": "label", "text": "foobar"}
-              ]
+              "dataSource" : {
+                  "data" : {
+                    "title" : "foobar"
+                  }
+              },  
+              "component": 
+                {"type": "label", "text": "title"}
             }
           ]
         }

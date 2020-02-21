@@ -4,8 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'components.g.dart';
 
-@JsonSerializable()
-class Component {
+@JsonSerializable(createFactory: false)
+abstract class Component {
   @JsonKey(required: true)
   final String type;
   final StyleData style;
@@ -42,8 +42,6 @@ class LabelComponent extends Component {
 
   factory LabelComponent.fromJson(Map<String, dynamic> json) =>
       _$LabelComponentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$LabelComponentToJson(this);
 }
 
 @JsonSerializable()
@@ -55,6 +53,4 @@ class ImageComponent extends Component {
 
   factory ImageComponent.fromJson(Map<String, dynamic> json) =>
       _$ImageComponentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ImageComponentToJson(this);
 }

@@ -1,17 +1,32 @@
 import 'package:flutterette/models/components.dart';
+import 'package:flutterette/models/data_source.dart';
+import 'package:flutterette/models/fixed_section.dart';
+import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/widget_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'section.g.dart';
 
-@JsonSerializable()
-class Section implements WidgetType {
-  final List<Component> items;
+// need to do this otherwise the generated fromJson method tries to instantiate abstract class
+// and need to generate the toJson even if not used as otherwise the code gen
+// fails for classes that have ref to Section class.
+@JsonSerializable(createFactory: false, createToJson: true)
+abstract class Section implements WidgetType {
+  final DataSource dataSource;
+  final Component component;
 
-  const Section({this.items});
+  const Section(this.dataSource, this.component);
 
-  factory Section.fromJson(Map<String, dynamic> json) =>
-      _$SectionFromJson(json);
+  factory Section.fromJson(Map<String, dynamic> json) {
+    assert(json != null);
+    assert(json['dataSource'] != null);
 
-  Map<String, dynamic> toJson() => _$SectionToJson(this);
+    if (json['dataSource']['data'] != null) {
+      return FixedSection.fromJson(json);
+    } else if (json['dataSource']['listData'] != null) {
+      return ListSection.fromJson(json);
+    } else {
+      throw Exception("invalid section, missing data or listData: ${json}");
+    }
+  }
 }

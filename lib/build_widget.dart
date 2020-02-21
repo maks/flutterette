@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutterette/color.dart';
 import 'package:flutterette/font_map.dart';
+import 'package:flutterette/models/fixed_section.dart';
 import 'package:flutterette/models/layouts.dart';
+import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/section.dart';
 import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/style_data.dart';
-import 'package:flutterette/models/widget_data.dart';
 import 'package:flutterette/models/widget_type.dart';
 
-Widget buildWidget(
-    BuildContext context, WidgetType widgetType, WidgetData data) {
+Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
   switch (widgetType.runtimeType) {
     case Page:
       final p = (widgetType as Page);
@@ -26,10 +26,8 @@ Widget buildWidget(
     case Body:
       return Container(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: _buildSectionWidgets(
-              context, (widgetType as Body).sections, null),
+          children:
+              _buildSectionWidgets(context, (widgetType as Body).sections),
         ),
       );
     default:
@@ -38,27 +36,51 @@ Widget buildWidget(
 }
 
 List<Widget> _buildSectionWidgets(
-    BuildContext context, List<Section> sections, List<WidgetData> data) {
-  return sections
-      .map((s) => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _buildComponentWidgets(context, s.items, data),
-          ))
+    BuildContext context, List<Section> sections) {
+  return sections.map((section) {
+    switch (section.runtimeType) {
+      case FixedSection:
+        return Container(
+          child: _buildComponentWidget(context,
+              (section as FixedSection).component, section.dataSource.data),
+        );
+      case ListSection:
+        final listSection = section as ListSection;
+        return _buildListWidget(
+            context, listSection.dataSource.listData, listSection.component);
+      default:
+        throw Exception('invalid Section type: ${section.runtimeType}');
+    }
+  }).toList();
+}
+
+Widget _buildListWidget(BuildContext context,
+    List<Map<String, dynamic>> listData, Component itemComponent) {
+  return Expanded(
+    child: ListView.builder(
+      itemCount: listData.length,
+      itemBuilder: (BuildContext context, int index) {
+        return _buildComponentWidget(context, itemComponent, listData[index]);
+      },
+    ),
+  ); //TODO: actually use listSection to build the Listview
+}
+
+List<Widget> _buildComponentWidgets(BuildContext context,
+    List<Component> components, Map<String, dynamic> data) {
+  return components
+      .map((c) => _buildComponentWidget(context, c, data))
       .toList();
 }
 
-List<Widget> _buildComponentWidgets(
-    BuildContext context, List<Component> components, List<WidgetData> data) {
-  return components.map((c) => _buildComponentWidget(context, c)).toList();
-}
-
-Widget _buildComponentWidget(BuildContext context, Component component) {
+Widget _buildComponentWidget(
+    BuildContext context, Component component, Map<String, dynamic> data) {
   switch (component.runtimeType) {
     case LabelComponent:
       final label = (component as LabelComponent);
       return _applyPadding(
           Text(
-            label.text,
+            data[label.text] as String,
             style: _buildTextStyle(context, label.style),
           ),
           label.style);
@@ -68,13 +90,13 @@ Widget _buildComponentWidget(BuildContext context, Component component) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: _buildComponentWidgets(
-            context, (component as HorizontalLayoutComponent).components, null),
+            context, (component as HorizontalLayoutComponent).components, data),
       );
     case VerticalLayoutComponent:
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: _buildComponentWidgets(
-            context, (component as VerticalLayoutComponent).components, null),
+            context, (component as VerticalLayoutComponent).components, data),
       );
     default:
       return Container();

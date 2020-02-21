@@ -16,8 +16,6 @@ class Page implements WidgetType {
   });
 
   factory Page.fromJson(Map<String, dynamic> json) => _$PageFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PageToJson(this);
 }
 
 @JsonSerializable()
@@ -26,8 +24,6 @@ class Body implements WidgetType {
   const Body(this.sections);
 
   factory Body.fromJson(Map<String, dynamic> json) => _$BodyFromJson(json);
-
-  Map<String, dynamic> toJson() => _$BodyToJson(this);
 }
 
 @JsonSerializable()
@@ -37,6 +33,4 @@ class Header implements WidgetType {
   const Header({this.title});
 
   factory Header.fromJson(Map<String, dynamic> json) => _$HeaderFromJson(json);
-
-  Map<String, dynamic> toJson() => _$HeaderToJson(this);
 }

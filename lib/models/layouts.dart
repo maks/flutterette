@@ -12,8 +12,6 @@ class HorizontalLayoutComponent extends Component {
 
   factory HorizontalLayoutComponent.fromJson(Map<String, dynamic> json) =>
       _$HorizontalLayoutComponentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$HorizontalLayoutComponentToJson(this);
 }
 
 @JsonSerializable()
@@ -24,6 +22,4 @@ class VerticalLayoutComponent extends Component {
 
   factory VerticalLayoutComponent.fromJson(Map<String, dynamic> json) =>
       _$VerticalLayoutComponentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$VerticalLayoutComponentToJson(this);
 }

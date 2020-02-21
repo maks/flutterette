@@ -13,6 +13,4 @@ class Head {
   Head({this.title, this.description, this.icon, this.style});
 
   factory Head.fromJson(Map<String, dynamic> json) => _$HeadFromJson(json);
-
-  Map<String, dynamic> toJson() => _$HeadToJson(this);
 }
