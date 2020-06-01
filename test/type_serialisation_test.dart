@@ -12,14 +12,14 @@ void main() {
   group('deserialise widget types', () {
     test('deserialise Page empty', () {
       final testJson = '''{"body": null, "header": null}''';
-      final p = Page.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
-      expect(p, isA<Page>());
+      final p = Screen.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
+      expect(p, isA<Screen>());
     });
 
     test('deserialise Page with Header', () {
       final testJson = '''{"body": null, "header": { "title" : "foo" }}''';
-      final p = Page.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
-      expect(p, isA<Page>());
+      final p = Screen.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
+      expect(p, isA<Screen>());
       expect(p.header, isA<Header>());
       expect(p.header.title, equals('foo'));
     });
@@ -47,8 +47,8 @@ void main() {
         ]
     }, "header": null}
     ''';
-      final p = Page.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
-      expect(p, isA<Page>());
+      final p = Screen.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
+      expect(p, isA<Screen>());
       expect(p.body.sections, isA<List<Section>>());
       expect(p.body.sections[0], isA<StandardSection>());
       expect(
@@ -71,8 +71,8 @@ void main() {
                         }
                     ]
                 }, "header": null}''';
-      final p = Page.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
-      expect(p, isA<Page>());
+      final p = Screen.fromJson((jsonDecode(testJson) as Map<String, dynamic>));
+      expect(p, isA<Screen>());
       expect(p.body.sections, isA<List<Section>>());
       expect(p.body.sections[0], isA<ListSection>());
       expect((p.body.sections[0] as ListSection).dataSource, isA<DataSource>());

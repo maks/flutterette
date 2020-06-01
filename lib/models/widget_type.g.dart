@@ -6,8 +6,8 @@ part of 'widget_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Page _$PageFromJson(Map<String, dynamic> json) {
-  return Page(
+Screen _$PageFromJson(Map<String, dynamic> json) {
+  return Screen(
     body: json['body'] == null
         ? null
         : Body.fromJson(json['body'] as Map<String, dynamic>),

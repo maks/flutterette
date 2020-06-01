@@ -12,8 +12,8 @@ FApp _$FAppFromJson(Map<String, dynamic> json) {
         ? null
         : Head.fromJson(json['head'] as Map<String, dynamic>),
     pages: (json['pages'] as List)
-        ?.map(
-            (e) => e == null ? null : Page.fromJson(e as Map<String, dynamic>))
+        ?.map((e) =>
+            e == null ? null : Screen.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }

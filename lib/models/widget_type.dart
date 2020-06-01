@@ -6,16 +6,16 @@ part 'widget_type.g.dart';
 abstract class WidgetType {}
 
 @JsonSerializable()
-class Page implements WidgetType {
+class Screen implements WidgetType {
   final Body body;
   final Header header;
 
-  const Page({
+  const Screen({
     this.body,
     this.header,
   });
 
-  factory Page.fromJson(Map<String, dynamic> json) => _$PageFromJson(json);
+  factory Screen.fromJson(Map<String, dynamic> json) => _$PageFromJson(json);
 }
 
 @JsonSerializable()
