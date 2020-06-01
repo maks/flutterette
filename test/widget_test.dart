@@ -9,8 +9,6 @@ import 'package:flutterette/models/f_app.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
-import 'container_color_finder.dart';
-
 void main() {
   testWidgets('find container for empty app', (WidgetTester tester) async {
     final mockBloc = MockAppBloc();
