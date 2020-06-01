@@ -27,6 +27,7 @@ class AppPlayer extends StatelessWidget {
           } else {
             return Container(
               color: Colors.blueAccent,
+              key: Key('appContainer'),
             );
           }
         });

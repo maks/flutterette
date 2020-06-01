@@ -3,13 +3,13 @@
         "head": {
             "title": "A Flutterette App"
         },
-        "pages": [
+        "screens": [
             {
                 "header": {
                     "title": "Test App"
                 },
                 "body": {
-                    "sections": [                        
+                    "sections": [
                         {
                             "dataSource": {
                                 "data": {
