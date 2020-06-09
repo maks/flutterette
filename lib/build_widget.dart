@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterette/color.dart';
+import 'package:flutterette/hex_color.dart';
 import 'package:flutterette/font_map.dart';
 import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/layouts.dart';
