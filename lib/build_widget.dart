@@ -117,7 +117,7 @@ TextStyle _buildTextStyle(BuildContext context, StyleData style) {
   final defaultTextStyle = Theme.of(context).textTheme.bodyText2;
 
   if (style != null) {
-    TextStyle textStyle = TextStyle(
+    var textStyle = TextStyle(
       inherit: true,
       color: HexColor(style.color),
       fontSize: style.font?.size,
@@ -126,8 +126,7 @@ TextStyle _buildTextStyle(BuildContext context, StyleData style) {
           (true == style.font?.isItalic) ? FontStyle.italic : FontStyle.normal,
     );
     if (style.font?.family != null) {
-      final TextStyle Function({TextStyle textStyle}) fontFunction =
-          fontMap[style.font.family];
+      final fontFunction = fontMap[style.font.family];
       textStyle = (fontFunction != null)
           ? fontFunction(textStyle: textStyle)
           : textStyle;

@@ -14,7 +14,7 @@ abstract class Component {
 
   factory Component.fromJson(Map<String, dynamic> json) {
     if (json is Map<String, dynamic> && json.containsKey('type')) {
-      final String type = json['type'] as String;
+      final type = json['type'] as String;
       switch (type) {
         case 'label':
           return LabelComponent.fromJson(json);
