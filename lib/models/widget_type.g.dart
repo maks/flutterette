@@ -1,12 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: implicit_dynamic_parameter
+
+// ignore_for_file: implicit_dynamic_parameter, unused_element
+
 part of 'widget_type.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Screen _$PageFromJson(Map<String, dynamic> json) {
+Screen _$ScreenFromJson(Map<String, dynamic> json) {
   return Screen(
     body: json['body'] == null
         ? null
