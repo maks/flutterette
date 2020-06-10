@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: implicit_dynamic_parameter
+
+// ignore_for_file: implicit_dynamic_parameter, unused_element
+
 part of 'f_app.dart';
 
 // **************************************************************************
@@ -11,9 +13,9 @@ FApp _$FAppFromJson(Map<String, dynamic> json) {
     head: json['head'] == null
         ? null
         : Head.fromJson(json['head'] as Map<String, dynamic>),
-    pages: (json['pages'] as List)
-        ?.map(
-            (e) => e == null ? null : Page.fromJson(e as Map<String, dynamic>))
+    screens: (json['screens'] as List)
+        ?.map((e) =>
+            e == null ? null : Screen.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }

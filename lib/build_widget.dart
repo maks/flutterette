@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterette/color.dart';
+import 'package:flutterette/hex_color.dart';
 import 'package:flutterette/font_map.dart';
 import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/layouts.dart';
@@ -11,12 +11,12 @@ import 'package:flutterette/models/widget_type.dart';
 
 Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
   switch (widgetType.runtimeType) {
-    case Page:
-      final p = (widgetType as Page);
+    case Screen:
+      final screen = (widgetType as Screen);
       return Scaffold(
-        body: buildWidget(context, p.body, null),
-        appBar: p.header != null
-            ? buildWidget(context, p.header, null) as AppBar
+        body: buildWidget(context, screen.body, null),
+        appBar: screen.header != null
+            ? buildWidget(context, screen.header, null) as AppBar
             : null,
       );
     case Header:
@@ -114,10 +114,10 @@ Widget _buildComponentWidget(
 
 /// map StyleData into a Flutter TextStyle
 TextStyle _buildTextStyle(BuildContext context, StyleData style) {
-  final defaultTextStyle = Theme.of(context).textTheme.body1;
+  final defaultTextStyle = Theme.of(context).textTheme.bodyText2;
 
   if (style != null) {
-    TextStyle textStyle = TextStyle(
+    var textStyle = TextStyle(
       inherit: true,
       color: HexColor(style.color),
       fontSize: style.font?.size,
@@ -126,8 +126,7 @@ TextStyle _buildTextStyle(BuildContext context, StyleData style) {
           (true == style.font?.isItalic) ? FontStyle.italic : FontStyle.normal,
     );
     if (style.font?.family != null) {
-      final TextStyle Function({TextStyle textStyle}) fontFunction =
-          fontMap[style.font.family];
+      final fontFunction = fontMap[style.font.family];
       textStyle = (fontFunction != null)
           ? fontFunction(textStyle: textStyle)
           : textStyle;

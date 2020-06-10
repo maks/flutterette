@@ -14,30 +14,27 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter 
   
   provider: ^4.0.4
-  google_fonts: ^0.3.9
+  google_fonts: ^1.1.0
   sentry: ^3.0.1
   device_info: ^0.4.1+5
   package_info: ^0.4.0+14
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+  freezed_annotation: ^0.7.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner:
-  freezed: ^0.2.4
-  json_serializable: ^3.2.5  
+  build_runner: ^1.10.0 
+  freezed: ^0.10.9
+  json_serializable: ^3.3.0 
   pedantic: ^1.8.0
-  test: ^1.6.0  
+  test: ^1.14.4
   mockito: ^4.1.1
 
 

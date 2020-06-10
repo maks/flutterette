@@ -9,8 +9,6 @@ import 'package:flutterette/models/f_app.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
-import 'container_color_finder.dart';
-
 void main() {
   testWidgets('find container for empty app', (WidgetTester tester) async {
     final mockBloc = MockAppBloc();
@@ -25,14 +23,14 @@ void main() {
       create: (BuildContext context) => mockBloc,
     ));
 
-    final emptyPlaceholder = findByColor(Color(0xff448aff));
+    final emptyPlaceholder = find.byKey(Key('appContainer'));
 
     expect(emptyPlaceholder, findsOneWidget);
 
     //extra pump to advance time in fakeasync to get stream to spit out new items
     await tester.pump();
 
-    final placeholderAfterInit = findByColor(Color(0xff448aff));
+    final placeholderAfterInit = emptyPlaceholder;
 
     expect(placeholderAfterInit, findsNothing);
   });
@@ -65,14 +63,14 @@ const String emptyAppJson = '''{
         "head": {
             "title": "A Test App"
         },
-        "pages": []
+        "screens": []
    }
 }''';
 
 const String singleSectionAppJson = '''{
   "flutterette": {
     "head": {"title": "A Test App"},
-    "pages": [
+    "screens": [
       {
         "body": {
           "sections": [
