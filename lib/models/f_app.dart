@@ -11,8 +11,9 @@ class FApp {
 
   FApp({this.head, this.screens});
 
-  Screen get firstPage =>
-      (screens != null && screens.isNotEmpty) ? screens[0] : Screen();
+  Screen get firstPage => (screens != null && screens.isNotEmpty)
+      ? screens[0]
+      : WidgetType.screen(null, null) as Screen;
 
   factory FApp.fromJson(Map<String, dynamic> json) => _$FAppFromJson(json);
 }

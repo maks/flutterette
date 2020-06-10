@@ -1,36 +1,56 @@
-import 'package:flutterette/models/section.dart';
+import 'package:flutterette/models/components.dart';
+import 'package:flutterette/models/data_source.dart';
+// import 'package:flutterette/models/section.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'widget_type.freezed.dart';
 part 'widget_type.g.dart';
 
-abstract class WidgetType {}
+@freezed
+abstract class WidgetType with _$WidgetType {
+  const factory WidgetType.screen(
+    Body body,
+    Header header,
+  ) = Screen;
 
-@JsonSerializable()
-class Screen implements WidgetType {
-  final Body body;
-  final Header header;
+  const factory WidgetType.body(List<Section> sections) = Body;
 
-  const Screen({
-    this.body,
-    this.header,
-  });
+  const factory WidgetType.header(String title) = Header;
 
-  factory Screen.fromJson(Map<String, dynamic> json) => _$ScreenFromJson(json);
+  const factory WidgetType.section(DataSource dataSource, Component component) =
+      Section;
+
+  const factory WidgetType.standardSection(
+      DataSource dataSource, Component component) = StandardSection;
+
+  const factory WidgetType.listSection(
+      DataSource dataSource, Component component) = ListSection;
+
+  factory WidgetType.fromJson(Map<String, dynamic> json) =>
+      _$WidgetTypeFromJson(json);
 }
 
-@JsonSerializable()
-class Body implements WidgetType {
-  final List<Section> sections;
-  const Body(this.sections);
+// @freezed
+// abstract class Screen with _$Screen {
+//   factory Screen({
+//     Body body,
+//     Header header,
+//   }) = _Screen;
 
-  factory Body.fromJson(Map<String, dynamic> json) => _$BodyFromJson(json);
-}
+//   factory Screen.fromJson(Map<String, dynamic> json) => _$ScreenFromJson(json);
+// }
 
-@JsonSerializable()
-class Header implements WidgetType {
-  final String title;
+// @freezed
+// abstract class Body with _$Body {
+//   factory Body(List<Section> section) = _Body;
 
-  const Header({this.title});
+//   factory Body.fromJson(Map<String, dynamic> json) => _$BodyFromJson(json);
+// }
 
-  factory Header.fromJson(Map<String, dynamic> json) => _$HeaderFromJson(json);
-}
+// @freezed
+// abstract class Header with _$Header {
+//   factory Header({String title}) = _Header;
+
+//   factory Header.fromJson(Map<String, dynamic> json) => _$HeaderFromJson(json);
+// }

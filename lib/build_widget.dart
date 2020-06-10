@@ -26,8 +26,8 @@ Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
     case Body:
       return Container(
         child: Column(
-          children:
-              _buildSectionWidgets(context, (widgetType as Body).sections),
+          children: _buildSectionWidgets(
+              context, (widgetType as Body).sections as List<Section>),
         ),
       );
     default:

@@ -25,7 +25,7 @@ dependencies:
   sentry: ^3.0.1
   device_info: ^0.4.1+5
   package_info: ^0.4.0+14
-  freezed_annotation: ^0.7.1
+  freezed_annotation:
 
 dev_dependencies:
   flutter_test:
