@@ -14,13 +14,13 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.9.0 <3.0.0"
 
 dependencies:
   flutter:
-    sdk: flutter 
-  
-  provider: ^4.0.4
+    sdk: flutter
+
+  provider: ^4.3.2
   google_fonts: ^0.3.9
   sentry: ^3.0.1
   device_info: ^0.4.1+5
@@ -34,27 +34,24 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
-  freezed: ^0.2.4
-  json_serializable: ^3.2.5  
+  freezed: ^0.12.0
+  json_serializable: ^3.2.5
   pedantic: ^1.8.0
-  test: ^1.6.0  
+  test: ^1.6.0
   mockito: ^4.1.1
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  
+
   assets:
     - assets/apps/
-    
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
