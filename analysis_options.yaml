@@ -5,6 +5,11 @@ analyzer:
     implicit-casts: false
     implicit-dynamic: false
 
+  exclude:
+    # Ignore generated code
+    - lib/*.g.dart
+    - lib/**/*.g.dart
+
 linter:
   rules:
     - always_put_control_body_on_new_line

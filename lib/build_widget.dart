@@ -12,12 +12,10 @@ import 'package:flutterette/models/widget_type.dart';
 Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
   switch (widgetType.runtimeType) {
     case Page:
-      final p = (widgetType as Page);
+      final p = (widgetType as FPage);
       return Scaffold(
         body: buildWidget(context, p.body, null),
-        appBar: p.header != null
-            ? buildWidget(context, p.header, null) as AppBar
-            : null,
+        appBar: p.header != null ? buildWidget(context, p.header, null) as AppBar : null,
       );
     case Header:
       return AppBar(
@@ -26,8 +24,7 @@ Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
     case Body:
       return Container(
         child: Column(
-          children:
-              _buildSectionWidgets(context, (widgetType as Body).sections),
+          children: _buildSectionWidgets(context, (widgetType as Body).sections),
         ),
       );
     default:
@@ -35,33 +32,25 @@ Widget buildWidget(BuildContext context, WidgetType widgetType, Map data) {
   }
 }
 
-List<Widget> _buildSectionWidgets(
-    BuildContext context, List<Section> sections) {
+List<Widget> _buildSectionWidgets(BuildContext context, List<Section> sections) {
   return sections.map((section) {
     switch (section.runtimeType) {
       case StandardSection:
         return Expanded(
           child: ListView(
-            children: [
-              _buildComponentWidget(
-                  context,
-                  (section as StandardSection).component,
-                  section.dataSource.data)
-            ],
+            children: [_buildComponentWidget(context, (section as StandardSection).component, section.dataSource.data)],
           ),
         );
       case ListSection:
         final listSection = section as ListSection;
-        return _buildListWidget(
-            context, listSection.dataSource.listData, listSection.component);
+        return _buildListWidget(context, listSection.dataSource.listData, listSection.component);
       default:
         throw Exception('invalid Section type: ${section.runtimeType}');
     }
   }).toList();
 }
 
-Widget _buildListWidget(BuildContext context,
-    List<Map<String, dynamic>> listData, Component itemComponent) {
+Widget _buildListWidget(BuildContext context, List<Map<String, dynamic>> listData, Component itemComponent) {
   return Expanded(
     child: ListView.builder(
       itemCount: listData.length,
@@ -72,15 +61,11 @@ Widget _buildListWidget(BuildContext context,
   ); //TODO: actually use listSection to build the Listview
 }
 
-List<Widget> _buildComponentWidgets(BuildContext context,
-    List<Component> components, Map<String, dynamic> data) {
-  return components
-      .map((c) => _buildComponentWidget(context, c, data))
-      .toList();
+List<Widget> _buildComponentWidgets(BuildContext context, List<Component> components, Map<String, dynamic> data) {
+  return components.map((c) => _buildComponentWidget(context, c, data)).toList();
 }
 
-Widget _buildComponentWidget(
-    BuildContext context, Component component, Map<String, dynamic> data) {
+Widget _buildComponentWidget(BuildContext context, Component component, Map<String, dynamic> data) {
   switch (component.runtimeType) {
     case LabelComponent:
       final label = (component as LabelComponent);
@@ -98,14 +83,12 @@ Widget _buildComponentWidget(
     case HorizontalLayoutComponent:
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: _buildComponentWidgets(
-            context, (component as HorizontalLayoutComponent).components, data),
+        children: _buildComponentWidgets(context, (component as HorizontalLayoutComponent).components, data),
       );
     case VerticalLayoutComponent:
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: _buildComponentWidgets(
-            context, (component as VerticalLayoutComponent).components, data),
+        children: _buildComponentWidgets(context, (component as VerticalLayoutComponent).components, data),
       );
     default:
       return Container();
@@ -114,23 +97,19 @@ Widget _buildComponentWidget(
 
 /// map StyleData into a Flutter TextStyle
 TextStyle _buildTextStyle(BuildContext context, StyleData style) {
-  final defaultTextStyle = Theme.of(context).textTheme.body1;
+  final defaultTextStyle = Theme.of(context).textTheme.bodyText1;
 
   if (style != null) {
-    TextStyle textStyle = TextStyle(
+    var textStyle = TextStyle(
       inherit: true,
       color: HexColor(style.color),
       fontSize: style.font?.size,
       fontFamily: style.font?.family,
-      fontStyle:
-          (true == style.font?.isItalic) ? FontStyle.italic : FontStyle.normal,
+      fontStyle: (true == style.font?.isItalic) ? FontStyle.italic : FontStyle.normal,
     );
     if (style.font?.family != null) {
-      final TextStyle Function({TextStyle textStyle}) fontFunction =
-          fontMap[style.font.family];
-      textStyle = (fontFunction != null)
-          ? fontFunction(textStyle: textStyle)
-          : textStyle;
+      final fontFunction = fontMap[style.font.family];
+      textStyle = (fontFunction != null) ? fontFunction(textStyle: textStyle) : textStyle;
     }
     return defaultTextStyle.merge(textStyle);
   } else {

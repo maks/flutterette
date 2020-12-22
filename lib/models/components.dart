@@ -14,7 +14,7 @@ abstract class Component {
 
   factory Component.fromJson(Map<String, dynamic> json) {
     if (json is Map<String, dynamic> && json.containsKey('type')) {
-      final String type = json['type'] as String;
+      final type = json['type'] as String;
       switch (type) {
         case 'label':
           return LabelComponent.fromJson(json);
@@ -37,20 +37,16 @@ abstract class Component {
 class LabelComponent extends Component {
   final String text;
 
-  const LabelComponent(String type, StyleData style, this.text)
-      : super(type, style);
+  const LabelComponent(String type, StyleData style, this.text) : super(type, style);
 
-  factory LabelComponent.fromJson(Map<String, dynamic> json) =>
-      _$LabelComponentFromJson(json);
+  factory LabelComponent.fromJson(Map<String, dynamic> json) => _$LabelComponentFromJson(json);
 }
 
 @JsonSerializable()
 class ImageComponent extends Component {
   final String url;
 
-  const ImageComponent(String type, StyleData style, this.url)
-      : super(type, style);
+  const ImageComponent(String type, StyleData style, this.url) : super(type, style);
 
-  factory ImageComponent.fromJson(Map<String, dynamic> json) =>
-      _$ImageComponentFromJson(json);
+  factory ImageComponent.fromJson(Map<String, dynamic> json) => _$ImageComponentFromJson(json);
 }

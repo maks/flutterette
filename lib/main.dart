@@ -28,7 +28,7 @@ void main() {
   // Using a zone makes sure that as many errors as possible are captured,
   // including those thrown from [Timer]s, microtasks, I/O, and those forwarded
   // from the `FlutterError` handler above.
-  runZoned<Future<void>>(() async {
+  runZonedGuarded<Future<void>>(() async {
     // Need to init native here
     WidgetsFlutterBinding.ensureInitialized();
 
@@ -38,7 +38,7 @@ void main() {
         create: (BuildContext context) => AppBloc(),
       ),
     );
-  }, onError: (Object error, StackTrace stackTrace) {
+  }, (Object error, StackTrace stackTrace) {
     // Whenever an error occurs, call the `reportError` function. This sends
     // Dart errors to the dev console or Sentry depending on the environment.
     reportError(error, stackTrace);
