@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: implicit_dynamic_parameter
+
 part of 'widget_type.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Page _$PageFromJson(Map<String, dynamic> json) {
-  return Page(
+FPage _$FPageFromJson(Map<String, dynamic> json) {
+  return FPage(
     body: json['body'] == null
         ? null
         : Body.fromJson(json['body'] as Map<String, dynamic>),

@@ -7,11 +7,11 @@ part 'f_app.g.dart';
 @JsonSerializable()
 class FApp {
   final Head head;
-  final List<Page> pages;
+  final List<FPage> pages;
 
   FApp({this.head, this.pages});
 
-  Page get firstPage => (pages != null && pages.isNotEmpty) ? pages[0] : Page();
+  FPage get firstPage => (pages != null && pages.isNotEmpty) ? pages[0] : FPage();
 
   factory FApp.fromJson(Map<String, dynamic> json) => _$FAppFromJson(json);
 }
