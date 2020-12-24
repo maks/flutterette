@@ -7,7 +7,11 @@ part of 'f_app.dart';
 // **************************************************************************
 
 FApp _$FAppFromJson(Map<String, dynamic> json) {
-  return FApp(
+  return FApp();
+}
+
+_$_FApp _$_$_FAppFromJson(Map<String, dynamic> json) {
+  return _$_FApp(
     head: json['head'] == null
         ? null
         : Head.fromJson(json['head'] as Map<String, dynamic>),

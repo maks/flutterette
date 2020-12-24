@@ -7,8 +7,8 @@ analyzer:
 
   exclude:
     # Ignore generated code
-    - lib/*.g.dart
-    - lib/**/*.g.dart
+    - "**/*.g.dart"
+    # - "**/*.freezed.dart"
 
 linter:
   rules:

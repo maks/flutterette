@@ -1,17 +1,18 @@
 import 'package:flutterette/models/head.dart';
 import 'package:flutterette/models/widget_type.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'f_app.freezed.dart';
 part 'f_app.g.dart';
 
-@JsonSerializable()
-class FApp {
-  final Head head;
-  final List<FPage> pages;
+@freezed
+@JsonSerializable(createToJson: false)
+abstract class FApp implements _$FApp {
+  const FApp._();
+  factory FApp({Head head, List<FPage> pages}) = _FApp;
 
-  FApp({this.head, this.pages});
-
-  FPage get firstPage => (pages != null && pages.isNotEmpty) ? pages[0] : FPage();
+  FPage get firstPage =>
+      (pages != null && pages.isNotEmpty) ? pages[0] : FPage();
 
   factory FApp.fromJson(Map<String, dynamic> json) => _$FAppFromJson(json);
 }
