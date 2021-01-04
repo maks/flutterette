@@ -6,7 +6,6 @@ part 'f_app.freezed.dart';
 part 'f_app.g.dart';
 
 @freezed
-@JsonSerializable(createToJson: false)
 abstract class FApp implements _$FApp {
   const FApp._();
   factory FApp({Head head, List<FPage> pages}) = _FApp;

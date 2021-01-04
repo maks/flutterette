@@ -20,6 +20,14 @@ StyleData _$StyleDataFromJson(Map<String, dynamic> json) {
   );
 }
 
+Map<String, dynamic> _$StyleDataToJson(StyleData instance) => <String, dynamic>{
+      'color': instance.color,
+      'font': instance.font,
+      'width': instance.width,
+      'height': instance.height,
+      'padding': instance.padding,
+    };
+
 PaddingData _$PaddingDataFromJson(Map<String, dynamic> json) {
   return PaddingData(
     (json['left'] as num)?.toDouble(),
@@ -29,6 +37,14 @@ PaddingData _$PaddingDataFromJson(Map<String, dynamic> json) {
   );
 }
 
+Map<String, dynamic> _$PaddingDataToJson(PaddingData instance) =>
+    <String, dynamic>{
+      'left': instance.left,
+      'right': instance.right,
+      'top': instance.top,
+      'bottom': instance.bottom,
+    };
+
 FontData _$FontDataFromJson(Map<String, dynamic> json) {
   return FontData(
     (json['size'] as num)?.toDouble(),
@@ -36,3 +52,9 @@ FontData _$FontDataFromJson(Map<String, dynamic> json) {
     json['style'] as String,
   );
 }
+
+Map<String, dynamic> _$FontDataToJson(FontData instance) => <String, dynamic>{
+      'size': instance.size,
+      'family': instance.family,
+      'style': instance.style,
+    };

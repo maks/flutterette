@@ -12,3 +12,9 @@ DataSource _$DataSourceFromJson(Map<String, dynamic> json) {
     (json['listData'] as List)?.map((e) => e as Map<String, dynamic>)?.toList(),
   );
 }
+
+Map<String, dynamic> _$DataSourceToJson(DataSource instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'listData': instance.listData,
+    };

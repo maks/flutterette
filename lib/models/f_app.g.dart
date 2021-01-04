@@ -6,10 +6,6 @@ part of 'f_app.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FApp _$FAppFromJson(Map<String, dynamic> json) {
-  return FApp();
-}
-
 _$_FApp _$_$_FAppFromJson(Map<String, dynamic> json) {
   return _$_FApp(
     head: json['head'] == null
@@ -21,3 +17,8 @@ _$_FApp _$_$_FAppFromJson(Map<String, dynamic> json) {
         ?.toList(),
   );
 }
+
+Map<String, dynamic> _$_$_FAppToJson(_$_FApp instance) => <String, dynamic>{
+      'head': instance.head,
+      'pages': instance.pages,
+    };
