@@ -18,40 +18,37 @@ environment:
 
 dependencies:
   flutter:
-    sdk: flutter 
-  
+    sdk: flutter
+
   provider: ^4.0.4
   google_fonts: ^1.1.0
   sentry: ^3.0.1
   device_info: ^0.4.1+5
   package_info: ^0.4.0+14
-  freezed_annotation: ^0.7.1
+  freezed_annotation: ^0.12.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.10.0 
-  freezed: ^0.10.9
-  json_serializable: ^3.3.0 
+  build_runner: ^1.10.0
+  freezed: ^0.12.7
+  json_serializable: ^3.3.0
   pedantic: ^1.8.0
   test: ^1.14.4
   mockito: ^4.1.1
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  
+
   assets:
     - assets/apps/
-    
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

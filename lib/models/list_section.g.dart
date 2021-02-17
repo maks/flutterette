@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: implicit_dynamic_parameter, unused_element
-
 part of 'list_section.dart';
 
 // **************************************************************************
@@ -18,3 +16,9 @@ ListSection _$ListSectionFromJson(Map<String, dynamic> json) {
         : Component.fromJson(json['component'] as Map<String, dynamic>),
   );
 }
+
+Map<String, dynamic> _$ListSectionToJson(ListSection instance) =>
+    <String, dynamic>{
+      'dataSource': instance.dataSource,
+      'component': instance.component,
+    };
