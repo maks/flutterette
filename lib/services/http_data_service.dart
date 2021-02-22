@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutterette/services/data_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:json_annotation/json_annotation.dart';
 
@@ -8,10 +9,13 @@ import 'package:flutterette/models/data_source.dart';
 part 'http_data_service.g.dart';
 
 @JsonSerializable()
-class HttpDataService {
+class HttpDataService implements DataService {
   final String name;
   final String host;
   final String path;
+
+  @override
+  final DataServiceType type = DataServiceType.Http;
 
   Uri get url => Uri.https(host, path);
 
