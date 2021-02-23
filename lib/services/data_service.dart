@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 
 enum DataServiceType {
-  NONE,
   Http,
   GraphQL,
   Websocket,

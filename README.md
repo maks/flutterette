@@ -72,6 +72,8 @@ Operators provide operations that can be applied to Data Sources and Events.
 Flutterette Mobile  is the specific implementation of Flutterette, intended to be used and deployed on mobile (phone) devices only, while Flutterette is the over arching project covering all form factors of computing and devices.
 Think of FLTM as the Special Theory of Relativity, to Flutterettes General Theory.
 
+
+
 ----
 
 ## Developing Flutterette
