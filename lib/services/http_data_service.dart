@@ -10,6 +10,7 @@ part 'http_data_service.g.dart';
 
 @JsonSerializable()
 class HttpDataService implements DataService {
+  @override
   final String name;
   final String host;
   final String path;

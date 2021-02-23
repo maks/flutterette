@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutterette/services/data_service.dart';
 import 'package:flutterette/ui/http_dataservice_form.dart';
 
-class DataServicesPage extends StatelessWidget {
+class DataServiceDefinitionPage extends StatelessWidget {
   final DataServiceType currentType;
   final Function(DataServiceType) setType;
 
-  const DataServicesPage({
+  const DataServiceDefinitionPage({
     Key key,
     @required this.currentType,
     @required this.setType,

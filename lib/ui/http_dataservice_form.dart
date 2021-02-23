@@ -16,7 +16,7 @@ class _HttpDataServiceFormState extends State<HttpDataServiceForm> {
         children: [
           _field(
             'Host',
-            'eg. https://jsonplaceholder.typicode.com/',
+            'eg. jsonplaceholder.typicode.com',
             notEmptyValidator,
           ),
           _field(
