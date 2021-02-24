@@ -20,3 +20,5 @@ linter:
     - prefer_final_fields
     - prefer_final_locals
     - annotate_overrides
+    - await_only_futures
+    - avoid_void_async
