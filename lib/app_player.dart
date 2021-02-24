@@ -13,6 +13,8 @@ class AppPlayer extends StatelessWidget {
           if (snapshot.hasData) {
             final app = snapshot.data;
             final appTitle = app.head?.title ?? 'Flutterette';
+            final bloc = Provider.of<AppBloc>(context);
+            debugPrint('Default Service: ${bloc.defaultService}');
             return MaterialApp(
               title: appTitle,
               theme: ThemeData(

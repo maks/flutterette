@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: implicit_dynamic_parameter, unused_element
-
 part of 'widget_type.dart';
 
 // **************************************************************************
@@ -19,6 +17,11 @@ Screen _$ScreenFromJson(Map<String, dynamic> json) {
   );
 }
 
+Map<String, dynamic> _$ScreenToJson(Screen instance) => <String, dynamic>{
+      'body': instance.body,
+      'header': instance.header,
+    };
+
 Body _$BodyFromJson(Map<String, dynamic> json) {
   return Body(
     (json['sections'] as List)
@@ -28,8 +31,16 @@ Body _$BodyFromJson(Map<String, dynamic> json) {
   );
 }
 
+Map<String, dynamic> _$BodyToJson(Body instance) => <String, dynamic>{
+      'sections': instance.sections,
+    };
+
 Header _$HeaderFromJson(Map<String, dynamic> json) {
   return Header(
     title: json['title'] as String,
   );
 }
+
+Map<String, dynamic> _$HeaderToJson(Header instance) => <String, dynamic>{
+      'title': instance.title,
+    };
