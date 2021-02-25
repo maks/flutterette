@@ -1,7 +1,6 @@
 import 'package:flutterette/models/head.dart';
 import 'package:flutterette/models/widget_type.dart';
 import 'package:flutterette/services/data_service.dart';
-import 'package:flutterette/services/http_data_service.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'f_app.g.dart';
