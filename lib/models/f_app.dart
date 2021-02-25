@@ -9,7 +9,6 @@ part 'f_app.g.dart';
 class FApp {
   final Head head;
   final List<Screen> screens;
-  // @_DataServicesListJsonConverter()
   final List<DataService> services;
 
   FApp({

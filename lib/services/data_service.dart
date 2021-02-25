@@ -19,6 +19,7 @@ enum DataServiceType {
 @JsonSerializable()
 abstract class DataService {
   final String name = '';
+
   DataServiceType get type =>
       throw Exception('abstract DataService does not have a type');
 
