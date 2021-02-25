@@ -15,10 +15,15 @@ FApp _$FAppFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : Screen.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    services: (json['services'] as List)
+        ?.map((e) =>
+            e == null ? null : DataService.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
 Map<String, dynamic> _$FAppToJson(FApp instance) => <String, dynamic>{
-      'head': instance.head,
-      'screens': instance.screens,
+      'head': instance.head?.toJson(),
+      'screens': instance.screens?.map((e) => e?.toJson())?.toList(),
+      'services': instance.services?.map((e) => e?.toJson())?.toList(),
     };

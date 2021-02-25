@@ -21,7 +21,7 @@ dependencies:
     sdk: flutter
   device_info: ^0.4.1+5
   freezed_annotation: ^0.12.0
-  google_fonts: ^1.1.0
+  google_fonts: ^1.1.2
   package_info: ^0.4.0+14
 
   provider: ^4.0.4

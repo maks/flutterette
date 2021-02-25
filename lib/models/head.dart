@@ -21,4 +21,6 @@ class Head {
   });
 
   factory Head.fromJson(Map<String, dynamic> json) => _$HeadFromJson(json);
+
+  Map<String, dynamic> toJson() => _$HeadToJson(this);
 }
