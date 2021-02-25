@@ -16,6 +16,8 @@ class Screen implements WidgetType {
   });
 
   factory Screen.fromJson(Map<String, dynamic> json) => _$ScreenFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ScreenToJson(this);
 }
 
 @JsonSerializable()

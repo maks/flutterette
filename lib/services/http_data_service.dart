@@ -24,6 +24,7 @@ class HttpDataService implements DataService {
     this.name,
     this.host,
     this.path,
+    DataServiceType type,
   });
 
   factory HttpDataService.fromJson(Map<String, dynamic> json) =>
@@ -47,5 +48,7 @@ class HttpDataService implements DataService {
   }
 
   @override
-  String toString() => '[$name]($url)';
+  String toString() => jsonEncode(toJson());
+
+  Map<String, dynamic> toJson() => _$HttpDataServiceToJson(this);
 }
