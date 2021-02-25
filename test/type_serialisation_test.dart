@@ -1,14 +1,16 @@
 import 'dart:convert';
 
+import 'package:test/test.dart';
+
+import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/data_source.dart';
 import 'package:flutterette/models/f_app.dart';
-import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/list_section.dart';
 import 'package:flutterette/models/section.dart';
-import 'package:flutterette/models/components.dart';
+import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/widget_type.dart';
+import 'package:flutterette/services/data_service.dart';
 import 'package:flutterette/services/http_data_service.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('deserialise widget types', () {
@@ -95,5 +97,14 @@ void main() {
     final fapp = FApp(services: [s]);
     final json = fapp.toJson();
     expect(json['services'][0]['host'], equals('acme.com'));
+  });
+
+  test('deserialise flutterette app with service', () {
+    final s = HttpDataService(host: 'acme.com', path: '/test', name: 'a test');
+    final fapp = FApp(services: [s]);
+    final json = fapp.toJson();
+    final deSerialisedF = FApp.fromJson(json);
+    expect(deSerialisedF.services[0].type.name, equals('Http'));
+    expect(deSerialisedF.services[0].name, equals('a test'));
   });
 }
