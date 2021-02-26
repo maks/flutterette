@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterette/services/data_service.dart';
 import 'package:flutterette/ui/dataservices_list_page.dart';
+import 'package:flutterette/ui/head_data_page.dart';
 import 'package:storyboard/storyboard.dart';
 
 import 'services/http_data_service.dart';
@@ -12,7 +13,8 @@ void main() {
     MaterialApp(
       home: Storyboard(
         [
-          FAppEditorPageStory(),
+          AppEditorPageStory(),
+          AppMetaDataPageStory(),
           DataServiceDefinitionStory(),
           DataServicesListStory(),
         ],
@@ -21,7 +23,7 @@ void main() {
   );
 }
 
-class FAppEditorPageStory extends FullScreenStory {
+class AppEditorPageStory extends FullScreenStory {
   @override
   List<Widget> get storyContent {
     return [
@@ -29,6 +31,13 @@ class FAppEditorPageStory extends FullScreenStory {
         onSelected: (fAppPart) => debugPrint('selected part: $fAppPart'),
       )
     ];
+  }
+}
+
+class AppMetaDataPageStory extends FullScreenStory {
+  @override
+  List<Widget> get storyContent {
+    return [HeadDataPage()];
   }
 }
 
