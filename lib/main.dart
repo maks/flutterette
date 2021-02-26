@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterette/app_editor.dart';
 import 'package:flutterette/app_player.dart';
 import 'package:flutterette/error_reporting.dart';
 import 'package:provider/provider.dart';
@@ -32,9 +33,13 @@ void main() {
     // Need to init native here
     WidgetsFlutterBinding.ensureInitialized();
 
+    // FIXME: TEMP HACK, this needs to be moved into Bloc
+    // how will we switch between modes? volume up/down key for now? later nfc tag or ble button
+    final editMode = true;
+
     runApp(
       Provider<AppBloc>(
-        child: AppPlayer(),
+        child: editMode ? AppEditor() : AppPlayer(),
         create: (BuildContext context) => AppBloc(),
       ),
     );

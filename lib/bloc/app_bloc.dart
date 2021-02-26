@@ -35,6 +35,9 @@ class AppBloc {
   }
 
   void _createServices(List<HttpDataService> services) {
+    if (services == null) {
+      return;
+    }
     for (final s in services) {
       _services.add(s);
     }

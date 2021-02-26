@@ -5,18 +5,31 @@ import 'package:storyboard/storyboard.dart';
 
 import 'services/http_data_service.dart';
 import 'ui/dataservice_definition_page.dart';
+import 'ui/fapp_editor_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
       home: Storyboard(
         [
+          FAppEditorPageStory(),
           DataServiceDefinitionStory(),
           DataServicesListStory(),
         ],
       ),
     ),
   );
+}
+
+class FAppEditorPageStory extends FullScreenStory {
+  @override
+  List<Widget> get storyContent {
+    return [
+      FAppEditorPage(
+        onSelected: (fAppPart) => debugPrint('selected part: $fAppPart'),
+      )
+    ];
+  }
 }
 
 class DataServiceDefinitionStory extends FullScreenStory {

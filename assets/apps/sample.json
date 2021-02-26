@@ -1,15 +1,16 @@
 {
     "flutterette": {
         "head": {
-            "title": "Flutterette App",
-            "services": [
-                {
-                    "name": "Placeholder",
-                    "host": "jsonplaceholder.typicode.com",
-                    "path": "/users/1"
-                }
-            ]
+            "title": "Flutterette App"
         },
+        "services": [
+            {
+                "name": "Placeholder",
+                "host": "jsonplaceholder.typicode.com",
+                "path": "/users/1",
+                "type": "Http"
+            }
+        ],
         "screens": [
             {
                 "header": {

@@ -5,6 +5,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'f_app.g.dart';
 
+enum FAppPart { Head, Services, Screens }
+
 @JsonSerializable(explicitToJson: true)
 class FApp {
   final Head head;
@@ -13,8 +15,8 @@ class FApp {
 
   FApp({
     this.head,
-    this.screens,
-    this.services,
+    this.screens = const [],
+    this.services = const [],
   });
 
   Screen get firstPage =>
