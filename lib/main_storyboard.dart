@@ -25,7 +25,8 @@ class DataServiceDefinitionStory extends FullScreenStory {
     return [
       DataServiceDefinitionPage(
         currentType: DataServiceType.Http,
-        setType: (type) {},
+        setType: (type) => debugPrint('set DS type: $type'),
+        updateDataService: (ds) => debugPrint('Update DS: $ds'),
       )
     ];
   }

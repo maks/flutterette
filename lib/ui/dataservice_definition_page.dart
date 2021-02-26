@@ -5,18 +5,20 @@ import 'package:flutterette/ui/http_dataservice_form.dart';
 class DataServiceDefinitionPage extends StatelessWidget {
   final DataServiceType currentType;
   final Function(DataServiceType) setType;
+  final Function(DataService) updateDataService;
 
   const DataServiceDefinitionPage({
     Key key,
     @required this.currentType,
     @required this.setType,
+    @required this.updateDataService,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('DS: ${currentType?.name ?? ""}'),
+        title: Text('${currentType?.name ?? ""} DataService'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -39,7 +41,7 @@ class DataServiceDefinitionPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: _currentTypeDefinitionForm(currentType),
+              child: _currentTypeDefinitionForm(currentType, updateDataService),
             ),
           ],
         ),
@@ -113,11 +115,12 @@ class DataServiceDefinitionPage extends StatelessWidget {
         size: 48,
       );
 
-  Widget _currentTypeDefinitionForm(DataServiceType type) {
+  Widget _currentTypeDefinitionForm(
+      DataServiceType type, Function(DataService) onUpdateService) {
     Widget form;
     switch (type) {
       case DataServiceType.Http:
-        form = HttpDataServiceForm();
+        form = HttpDataServiceForm(onUpdate: onUpdateService);
         break;
       default:
         form = Text('${type.name}');

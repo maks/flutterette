@@ -43,12 +43,12 @@ class HttpDataService implements DataService {
   DataSource _dataSourceFromResponse(http.Response response) {
     final ds =
         DataSource(jsonDecode(response.body) as Map<String, dynamic>, null);
-    print('got from DS: ${ds.data}');
     return ds;
   }
 
   @override
   String toString() => jsonEncode(toJson());
 
+  @override
   Map<String, dynamic> toJson() => _$HttpDataServiceToJson(this);
 }
