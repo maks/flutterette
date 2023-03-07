@@ -8,7 +8,9 @@ part of 'list_section.dart';
 
 ListSection _$ListSectionFromJson(Map<String, dynamic> json) => ListSection(
       DataSource.fromJson(json['dataSource'] as Map<String, dynamic>),
-      Component.fromJson(json['component'] as Map<String, dynamic>),
+      json['component'] == null
+          ? null
+          : Component.fromJson(json['component'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ListSectionToJson(ListSection instance) =>

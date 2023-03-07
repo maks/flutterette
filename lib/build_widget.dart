@@ -60,7 +60,7 @@ List<Widget> _buildSectionWidgets(
 }
 
 Widget _buildListWidget(BuildContext context,
-    List<Map<String, dynamic>>? listData, Component itemComponent) {
+    List<Map<String, dynamic>>? listData, Component? itemComponent) {
   return Expanded(
     child: ListView.builder(
       itemCount: listData?.length,
@@ -79,7 +79,7 @@ List<Widget> _buildComponentWidgets(BuildContext context,
 }
 
 Widget _buildComponentWidget(
-    BuildContext context, Component component, Map<String, dynamic>? data) {
+    BuildContext context, Component? component, Map<String, dynamic>? data) {
   switch (component.runtimeType) {
     case LabelComponent:
       final label = (component as LabelComponent);

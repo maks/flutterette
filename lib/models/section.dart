@@ -13,7 +13,7 @@ part 'section.g.dart';
 @JsonSerializable(createFactory: false, createToJson: true)
 abstract class Section implements WidgetType {
   final DataSource dataSource;
-  final Component component;
+  final Component? component;
 
   const Section(this.dataSource, this.component);
 

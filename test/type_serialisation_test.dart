@@ -56,7 +56,7 @@ void main() {
       expect(p.body?.sections[0], isA<StandardSection>());
       expect(
           (p.body?.sections[0] as StandardSection).component, isA<Component>());
-      expect((p.body?.sections[0] as StandardSection).component.type,
+      expect((p.body?.sections[0] as StandardSection).component?.type,
           equals('label'));
       expect(
           ((p.body?.sections[0] as StandardSection).component as LabelComponent)

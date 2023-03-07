@@ -7,7 +7,7 @@ part 'components.g.dart';
 @JsonSerializable(createFactory: false)
 abstract class Component {
   @JsonKey(required: true)
-  final String type;
+  final String? type;
   final StyleData? style;
 
   const Component(this.type, this.style);
