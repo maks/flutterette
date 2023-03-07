@@ -8,12 +8,12 @@ part 'components.g.dart';
 abstract class Component {
   @JsonKey(required: true)
   final String type;
-  final StyleData style;
+  final StyleData? style;
 
   const Component(this.type, this.style);
 
   factory Component.fromJson(Map<String, dynamic> json) {
-    if (json is Map<String, dynamic> && json.containsKey('type')) {
+    if (json.containsKey('type')) {
       final type = json['type'] as String;
       switch (type) {
         case 'label':
@@ -37,7 +37,7 @@ abstract class Component {
 class LabelComponent extends Component {
   final String text;
 
-  const LabelComponent(String type, StyleData style, this.text)
+  const LabelComponent(String type, StyleData? style, this.text)
       : super(type, style);
 
   factory LabelComponent.fromJson(Map<String, dynamic> json) =>
@@ -48,7 +48,7 @@ class LabelComponent extends Component {
 class ImageComponent extends Component {
   final String url;
 
-  const ImageComponent(String type, StyleData style, this.url)
+  const ImageComponent(String type, StyleData? style, this.url)
       : super(type, style);
 
   factory ImageComponent.fromJson(Map<String, dynamic> json) =>

@@ -12,7 +12,10 @@ Map<String, dynamic> _$ComponentToJson(Component instance) => <String, dynamic>{
     };
 
 LabelComponent _$LabelComponentFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const ['type']);
+  $checkKeys(
+    json,
+    requiredKeys: const ['type'],
+  );
   return LabelComponent(
     json['type'] as String,
     json['style'] == null
@@ -30,7 +33,10 @@ Map<String, dynamic> _$LabelComponentToJson(LabelComponent instance) =>
     };
 
 ImageComponent _$ImageComponentFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const ['type']);
+  $checkKeys(
+    json,
+    requiredKeys: const ['type'],
+  );
   return ImageComponent(
     json['type'] as String,
     json['style'] == null

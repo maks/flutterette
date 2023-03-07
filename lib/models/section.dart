@@ -1,7 +1,7 @@
 import 'package:flutterette/models/components.dart';
 import 'package:flutterette/models/data_source.dart';
-import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/list_section.dart';
+import 'package:flutterette/models/standard_section.dart';
 import 'package:flutterette/models/widget_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -18,8 +18,6 @@ abstract class Section implements WidgetType {
   const Section(this.dataSource, this.component);
 
   factory Section.fromJson(Map<String, dynamic> json) {
-    assert(json != null);
-    assert(json['dataSource'] != null);
 
     if (json['dataSource']['data'] != null) {
       return StandardSection.fromJson(json);

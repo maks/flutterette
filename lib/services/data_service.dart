@@ -22,8 +22,10 @@ abstract class DataService {
   DataServiceType get type =>
       throw Exception('abstract DataService does not have a type');
 
+  DataService();    
+
   factory DataService.fromJson(Map<String, dynamic> json) {
-    DataService r;
+    late DataService r;
     switch (_fromName(json['type'] as String)) {
       case DataServiceType.Http:
         r = HttpDataService.fromJson(json);

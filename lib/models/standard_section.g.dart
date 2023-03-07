@@ -6,16 +6,11 @@ part of 'standard_section.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StandardSection _$StandardSectionFromJson(Map<String, dynamic> json) {
-  return StandardSection(
-    json['dataSource'] == null
-        ? null
-        : DataSource.fromJson(json['dataSource'] as Map<String, dynamic>),
-    json['component'] == null
-        ? null
-        : Component.fromJson(json['component'] as Map<String, dynamic>),
-  );
-}
+StandardSection _$StandardSectionFromJson(Map<String, dynamic> json) =>
+    StandardSection(
+      DataSource.fromJson(json['dataSource'] as Map<String, dynamic>),
+      Component.fromJson(json['component'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$StandardSectionToJson(StandardSection instance) =>
     <String, dynamic>{

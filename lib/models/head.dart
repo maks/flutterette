@@ -6,11 +6,11 @@ part 'head.g.dart';
 
 @JsonSerializable()
 class Head {
-  final String title;
-  final String description;
-  final String icon;
-  final StyleData style;
-  final List<HttpDataService> services;
+  final String? title;
+  final String? description;
+  final String? icon;
+  final StyleData? style;
+  final List<HttpDataService>? services;
 
   Head({
     this.title,

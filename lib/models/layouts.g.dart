@@ -8,16 +8,16 @@ part of 'layouts.dart';
 
 HorizontalLayoutComponent _$HorizontalLayoutComponentFromJson(
     Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const ['type']);
+  $checkKeys(
+    json,
+    requiredKeys: const ['type'],
+  );
   return HorizontalLayoutComponent(
     json['type'] as String,
-    json['style'] == null
-        ? null
-        : StyleData.fromJson(json['style'] as Map<String, dynamic>),
-    (json['components'] as List)
-        ?.map((e) =>
-            e == null ? null : Component.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    StyleData.fromJson(json['style'] as Map<String, dynamic>),
+    (json['components'] as List<dynamic>)
+        .map((e) => Component.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -31,16 +31,18 @@ Map<String, dynamic> _$HorizontalLayoutComponentToJson(
 
 VerticalLayoutComponent _$VerticalLayoutComponentFromJson(
     Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const ['type']);
+  $checkKeys(
+    json,
+    requiredKeys: const ['type'],
+  );
   return VerticalLayoutComponent(
     json['type'] as String,
     json['style'] == null
         ? null
         : StyleData.fromJson(json['style'] as Map<String, dynamic>),
-    (json['components'] as List)
-        ?.map((e) =>
-            e == null ? null : Component.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    (json['components'] as List<dynamic>)
+        .map((e) => Component.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 

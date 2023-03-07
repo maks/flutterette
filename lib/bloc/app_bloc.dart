@@ -6,21 +6,21 @@ import 'package:flutterette/models/f_app.dart';
 import 'package:flutterette/services/http_data_service.dart';
 
 class AppBloc {
-  final _appStream = StreamController<FApp>();
+  final _appStream = StreamController<FApp?>();
 
-  FApp _currentApp;
+  FApp? _currentApp;
 
   final List<HttpDataService> _services = [];
 
   HttpDataService get defaultService => _services.first;
 
-  Stream<FApp> get appStream {
+  Stream<FApp?> get appStream {
     if (_currentApp == null) {
       _loadAppAsAsset();
     }
     final stream = _appStream.stream.asBroadcastStream();
     stream.listen((fApp) {
-      _createServices(fApp.head.services);
+      _createServices(fApp?.head?.services);
     });
     return stream;
   }
@@ -34,7 +34,10 @@ class AppBloc {
     _appStream.add(_currentApp);
   }
 
-  void _createServices(List<HttpDataService> services) {
+  void _createServices(List<HttpDataService>? services) {
+    if (services == null) {
+      return;
+    }
     for (final s in services) {
       _services.add(s);
     }

@@ -28,7 +28,7 @@ class _HttpDataServiceFormState extends State<HttpDataServiceForm> {
             padding: const EdgeInsets.only(top: 16),
             child: ElevatedButton(
               onPressed: () {
-                if (_formKey.currentState.validate()) {
+                if (_formKey.currentState?.validate() == true) {
                   //TODO: create new Http DS
                 } else {
                   debugPrint('invalid');
@@ -45,7 +45,7 @@ class _HttpDataServiceFormState extends State<HttpDataServiceForm> {
   TextFormField _field(
     String label,
     String hint,
-    FormFieldValidator<String> validator,
+    FormFieldValidator<String>? validator,
   ) {
     return TextFormField(
       decoration: InputDecoration(
@@ -61,8 +61,8 @@ class _HttpDataServiceFormState extends State<HttpDataServiceForm> {
   }
 }
 
-String notEmptyValidator(String value) {
-  if (value.isEmpty) {
+String? notEmptyValidator(String? value) {
+  if (value?.isEmpty == true) {
     return 'Please enter some text';
   }
   return null;

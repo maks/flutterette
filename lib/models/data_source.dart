@@ -4,8 +4,8 @@ part 'data_source.g.dart';
 
 @JsonSerializable()
 class DataSource {
-  final Map<String, dynamic> data;
-  final List<Map<String, dynamic>> listData;
+  final Map<String, dynamic>? data;
+  final List<Map<String, dynamic>>? listData;
 
   const DataSource(this.data, this.listData);
 

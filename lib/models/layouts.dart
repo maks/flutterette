@@ -17,7 +17,7 @@ class HorizontalLayoutComponent extends Component {
 @JsonSerializable()
 class VerticalLayoutComponent extends Component {
   final List<Component> components;
-  const VerticalLayoutComponent(String type, StyleData style, this.components)
+  const VerticalLayoutComponent(String type, StyleData? style, this.components)
       : super(type, style);
 
   factory VerticalLayoutComponent.fromJson(Map<String, dynamic> json) =>

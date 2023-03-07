@@ -7,12 +7,12 @@ import 'package:provider/provider.dart';
 class AppPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<FApp>(
+    return StreamBuilder<FApp?>(
         stream: Provider.of<AppBloc>(context).appStream,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final app = snapshot.data;
-            final appTitle = app.head?.title ?? 'Flutterette';
+            final appTitle = app?.head?.title ?? 'Flutterette';
             final bloc = Provider.of<AppBloc>(context);
             debugPrint('Default Service: ${bloc.defaultService}');
             return MaterialApp(
@@ -22,7 +22,7 @@ class AppPlayer extends StatelessWidget {
               ),
               home: buildWidget(
                 context,
-                app.firstPage,
+                app?.firstPage,
                 null,
               ),
             );

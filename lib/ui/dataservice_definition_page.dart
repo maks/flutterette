@@ -7,16 +7,16 @@ class DataServiceDefinitionPage extends StatelessWidget {
   final Function(DataServiceType) setType;
 
   const DataServiceDefinitionPage({
-    Key key,
-    @required this.currentType,
-    @required this.setType,
+    Key? key,
+    required this.currentType,
+    required this.setType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('DS: ${currentType?.name ?? ""}'),
+        title: Text('DS: ${currentType.name}'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -49,7 +49,7 @@ class DataServiceDefinitionPage extends StatelessWidget {
 
   Widget _dsWidget(DataServiceType ds) {
     Icon _icon;
-    VoidCallback _onPressed;
+    late VoidCallback _onPressed;
     switch (ds) {
       case DataServiceType.Http:
         _icon = _mkIcon(Icons.file_download);

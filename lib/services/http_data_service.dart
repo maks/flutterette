@@ -1,10 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutterette/models/data_source.dart';
 import 'package:flutterette/services/data_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:json_annotation/json_annotation.dart';
-
-import 'package:flutterette/models/data_source.dart';
 
 part 'http_data_service.g.dart';
 
@@ -12,19 +11,19 @@ part 'http_data_service.g.dart';
 class HttpDataService implements DataService {
   @override
   final String name;
-  final String host;
-  final String path;
+  final String? host;
+  final String? path;
 
   @override
   final DataServiceType type = DataServiceType.Http;
 
-  Uri get url => Uri.https(host, path);
+  Uri get url => Uri.https(host ?? '', path ?? '');
 
   const HttpDataService({
-    this.name,
+    required this.name,
     this.host,
     this.path,
-    DataServiceType type,
+    DataServiceType? type,
   });
 
   factory HttpDataService.fromJson(Map<String, dynamic> json) =>
@@ -50,5 +49,6 @@ class HttpDataService implements DataService {
   @override
   String toString() => jsonEncode(toJson());
 
+  @override
   Map<String, dynamic> toJson() => _$HttpDataServiceToJson(this);
 }

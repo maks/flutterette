@@ -7,8 +7,8 @@ abstract class WidgetType {}
 
 @JsonSerializable()
 class Screen implements WidgetType {
-  final Body body;
-  final Header header;
+  final Body? body;
+  final Header? header;
 
   const Screen({
     this.body,
@@ -30,7 +30,7 @@ class Body implements WidgetType {
 
 @JsonSerializable()
 class Header implements WidgetType {
-  final String title;
+  final String? title;
 
   const Header({this.title});
 

@@ -11,8 +11,6 @@ Map<String, TextStyle Function({TextStyle textStyle})> fontMap = {
   'pacifico': GoogleFonts.pacifico,
   'roboto': GoogleFonts.roboto,
   'robotoMono': GoogleFonts.robotoMono,
-  'droidSans': GoogleFonts.droidSans,
-  'droidSansMono': GoogleFonts.droidSansMono,
   'ubuntu': GoogleFonts.ubuntu,
   'ubuntuMono': GoogleFonts.ubuntuMono,
   'openSans': GoogleFonts.openSans,
@@ -33,6 +31,5 @@ Map<String, TextStyle Function({TextStyle textStyle})> fontMap = {
   'playfairDisplay': GoogleFonts.playfairDisplay,
   'poppins': GoogleFonts.poppins,
   'arimo': GoogleFonts.arimo,
-  'titilliumWeb': GoogleFonts.titilliumWeb,
-  'muli': GoogleFonts.muli,
+  'titilliumWeb': GoogleFonts.titilliumWeb
 };

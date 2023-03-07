@@ -7,10 +7,10 @@ class DataServicesListPage extends StatelessWidget {
   final VoidCallback onAdd;
 
   const DataServicesListPage({
-    Key key,
-    @required this.services,
-    @required this.onSelected,
-    @required this.onAdd,
+    Key? key,
+    required this.services,
+    required this.onSelected,
+    required this.onAdd,
   }) : super(key: key);
 
   @override
